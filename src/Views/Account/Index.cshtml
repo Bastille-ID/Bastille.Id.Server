@@ -1,0 +1,58 @@
+﻿@using Bastille.Id.Models
+@model Bastille.Id.Server.Core.Security.Models.ManageUserProfileModel
+@{
+    ViewData["Title"] = Resources.ProfileSettingsText;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head {
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <span data-feather="user"></span>
+                            @Resources.OverviewText
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/Consents">
+                            <span data-feather="check"></span>
+                            @Resources.ClientConsentsText
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/TwoFactorAuthentication">
+                            <span data-feather="lock"></span>
+                            @Resources.TwoFactorAuthenticationText
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        //siteApp.notifyPrompt("@Html.Raw(Model.StatusMessage)", "@Model.StatusType", @((Model.StatusType == StatusMessageResultType.Success).ToString().ToLower()));
+    </script>
+}

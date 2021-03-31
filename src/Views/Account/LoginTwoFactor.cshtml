@@ -1,0 +1,67 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.LoginTwoFactorViewModel
+@{
+    ViewData["NoLogoImage"] = true;
+    ViewData["Title"] = Resources.TwoFactorAuthenticationText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+}
+<div class="row">
+    <div class="col-md-6 col-sm-8 ml-auto mr-auto">
+        <div class="card card-signup">
+
+            <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">@ViewData["Title"]</h4>
+            </div>
+
+            <form asp-action="LoginTwoFactor" method="post" novalidate="novalidate">
+                <input type="hidden" asp-for="ReturnUrl" />
+                <input type="hidden" asp-for="RememberLogin" />
+                <p>
+                    <img src="~/images/mobile_lock.jpg" align="left" alt="mobile phone" />
+                    @Resources.TwoFactorAuthenticationPromptText
+                </p>
+                <p>
+                    @Resources.TwoFactorRecoveryPromptText
+                </p>
+                <div class="card-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">lock_outline</i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="@Resources.EnterCodeText" asp-for="Code" autocomplete="off" required="required">
+                    </div>
+                    <div class="input-group pl-lg-5"><span asp-validation-for="Code" class="text-danger"></span></div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                            </span>
+                        </div>
+                        <div class="checkbox">
+                            <br />
+                            <label asp-for="RememberDevice">
+                                <input asp-for="RememberDevice">
+                                <strong>@Resources.RememberDeviceText</strong>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer text-center">
+                    <button type="submit" class="btn btn-primary btn-success btn-round">@Resources.VerifyText</button> or
+                    <button type="button" id="recoveryButton" class="btn btn-round">@Resources.UseRecoveryCodeText</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script language="javascript">
+        $(document).ready(function () {
+            $('#recoveryButton').on('click', function () {
+                window.location.href = '/Account/LoginWithRecoveryCode?returnUrl=@Html.UrlEncoder.Encode(Model.ReturnUrl ?? string.Empty)';
+            });
+        });
+    </script>
+}

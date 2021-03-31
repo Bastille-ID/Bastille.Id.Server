@@ -1,0 +1,68 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.ConfirmationReturnViewModel
+@{
+    ViewData["Title"] = Resources.EmailConfirmedText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center align-items-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    @*render the tenant name and logo image specified*@
+                    <div class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.TenantName))
+                        {
+                            <div class="row">
+                                <div class="tenant-title col-md-6 col-sm-6 ml-auto mr-auto text-center">
+                                    <h2 class="title">@Model.TenantName</h2>
+                                </div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(Model.LoginLogoImageUrl))
+                        {
+                            <img src="@Model.LoginLogoImageUrl" class="mb-lg-5" />
+                        }
+                    </div>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        @Resources.EmailConfirmedPromptText
+                        <p>
+                            <span id="countdown"></span>
+                        </p>
+                        <div class="text-center">
+                            <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-primary btn-link btn-wd btn-lg">@Resources.BackToLoginText</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script language="javascript">
+        var count = 10;
+        var message = '@Resources.EmailConfirmedMessageText';
+        $('#countdown').text(message + count + ' @Resources.SecondsText');
+        --count;
+
+        window.setInterval(function () {
+            $('#countdown').text(message + count + ' @Resources.SecondsText');
+
+            if (count <= 0) {
+                window.location.href = '/Account/Login';
+            }
+
+            --count;
+        }, 1000);
+
+        $(document).ready(function () {
+            $('#loginButton').on('click', function () {
+                    window.location.href = '/Account/Login';
+                });
+            });
+    </script>
+}

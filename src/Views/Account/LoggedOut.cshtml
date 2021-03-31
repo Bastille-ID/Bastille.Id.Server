@@ -1,0 +1,71 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.LoggedOutViewModel
+
+@{
+    ViewData["Title"] = Resources.SignOutText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+    // set this so the layout rendering sees an anonymous user
+    ViewData["signed-out"] = true;
+}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center align-items-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    @*render the tenant name and logo image specified*@
+                    <div class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.TenantName))
+                        {
+                            <div class="row">
+                                <div class="tenant-title col-md-6 col-sm-6 ml-auto mr-auto text-center">
+                                    <h2 class="title">@Model.TenantName</h2>
+                                </div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(Model.LoginLogoImageUrl))
+                        {
+                            <img src="@Model.LoginLogoImageUrl" class="mb-lg-5" />
+                        }
+                    </div>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        @if (!string.IsNullOrWhiteSpace(Model.ClientName))
+                        {
+                            @string.Format(Resources.LoggedOutOfClientPromptText, Model.ClientName);
+                        }
+                        else
+                        {
+                            @Resources.LoggedOutPromptText
+                        }
+
+                        @if (Model.PostLogoutRedirectUri != null)
+                        {
+                            <div class="text-center">
+                                <a href="@Model.PostLogoutRedirectUri" class="btn btn-primary btn-link btn-wd btn-lg">@Resources.BackText</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.SignOutIframeUrl != null)
+{
+    <iframe width="0" height="0" class="signout" src="@Model.SignOutIframeUrl"></iframe>
+}
+
+@section scripts
+{
+    @if (Model.AutomaticRedirectAfterSignOut)
+    {
+        <script language="javascript">
+        $(function () {
+            window.location = '@Model.PostLogoutRedirectUri';
+        });
+        </script>
+    }
+}

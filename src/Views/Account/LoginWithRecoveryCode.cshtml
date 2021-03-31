@@ -1,0 +1,50 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.LoginWithRecoveryCodeViewModel
+@{
+    ViewData["NoLogoImage"] = true;
+    ViewData["Title"] = Resources.RecoveryCodeVerificationText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+}
+<div class="row">
+    <div class="col-md-6 col-sm-8 ml-auto mr-auto">
+        <div class="card card-signup">
+
+            <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">@ViewData["Title"]</h4>
+            </div>
+
+            <form asp-action="Register" method="post" novalidate="novalidate">
+                <input type="hidden" asp-for="ReturnUrl" />
+                <p>
+                    <img src="~/images/recovery_code.jpg" align="left" alt="recovery code" />
+                    @Resources.RecoveryCodePromptText
+                </p>
+                <div class="card-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">lock_outline</i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="@Resources.EnterRecoveryCodeText" asp-for="RecoveryCode" autocomplete="off" required="required">
+                    </div>
+                    <div class="input-group pl-lg-5"><span asp-validation-for="RecoveryCode" class="text-danger"></span></div>
+                </div>
+                <div class="footer text-center">
+                    <button type="submit" class="btn btn-primary btn-success btn-round">@Resources.VerifyText</button>
+                    <button type="button" id="backButton" class="btn btn-round">@Resources.BackText</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script language="javascript">
+        $(document).ready(function () {
+            $('#recoveryButton').on('click', function () {
+                window.history.go(-1);
+            });
+        });
+    </script>
+}

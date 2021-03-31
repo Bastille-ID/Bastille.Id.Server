@@ -1,0 +1,86 @@
+﻿@using Bastille.Id.Server.Core.Extensions
+@model Bastille.Id.Server.Core.Security.Models.TwoFactorInputModel
+@{
+    Layout = "~/Views/Shared/_Landing.cshtml";
+    ViewData["Title"] = Resources.ConfigureAuthenticatorAppText;
+}
+
+<div class="row">
+    <div class="col-md-6 col-sm-8 ml-auto mr-auto">
+        <div class="card card-signup">
+
+            <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">@ViewData["Title"]</h4>
+            </div>
+            <form asp-action="EnableAuthenticator" method="post">
+                <div class="card-body">
+                    <p>To use an authenticator app go through the following steps:</p>
+                    <ol class="list">
+                        <li>
+                            <p>
+                                Download a two-factor authenticator app like Microsoft Authenticator for
+                                <a href="https://go.microsoft.com/fwlink/?Linkid=825071">Windows Phone</a>,
+                                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
+                                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
+                                Google Authenticator for
+                                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
+                                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Scan the QR Code or enter this key <kbd>@ViewBag.SharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
+                            <div id="qrCode"></div>
+                            <div id="qrCodeData" data-url="@Html.Raw(ViewBag.AuthenticatorUri)"></div>
+                        </li>
+                        <li>
+                            <p>
+                                Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
+                                with a unique code. Enter the code in the confirmation box below.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Code" class="control-label">@Resources.VerificationCodeText</label>
+                                        <input asp-for="Code" class="form-control" autocomplete="off" />
+                                        <span asp-validation-for="Code" class="text-danger"></span>
+                                    </div>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                    @*<div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="material-icons">mail</i>
+                                </span>
+                            </div>
+                            <input type="email" class="form-control" placeholder="@Resources.EmailText" asp-for="Email" autofocus>
+                        </div>
+                        <div class="input-group pl-lg-5"><span asp-validation-for="Email" class="text-danger"></span></div>*@
+                </div>
+                <div class="footer text-center">
+                    <button type="submit" class="btn btn-primary btn-success btn-round">@Resources.VerifyText</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <environment include="Development">
+        <script type="text/javascript" src="~/lib/qrcode.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script type="text/javascript" src="~/lib/qrcode/qrcode.min.js"></script>
+    </environment>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrCode"),
+            {
+                text: "@Html.Raw(ViewBag.AuthenticatorUri)",
+                width: 150,
+                height: 150
+            });
+    </script>
+}

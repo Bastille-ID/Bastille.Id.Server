@@ -1,0 +1,137 @@
+﻿@using Bastille.Id.Server.Core.Common
+@model Bastille.Id.Server.Core.Security.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = Resources.RegisterNewAccountText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    @* render the tenant name and logo image specified*@
+                    <div class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.TenantName))
+                        {
+                            <div class="row">
+                                <div class="tenant-title col-md-6 col-sm-6 ml-auto mr-auto text-center">
+                                    <h2 class="title">@Model.TenantName</h2>
+                                </div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(Model.LoginLogoImageUrl))
+                        {
+                            <img src="@Model.LoginLogoImageUrl" class="mb-lg-5" />
+                        }
+                    </div>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+
+                        @*If we're not allowing local login, and no external providers configured, can't login *@
+                        @if (!Model.EnableLocalLogin)
+                        {
+                            <div class="alert alert-warning">
+                                <strong>@Resources.AuthenticationInvalidRequestErrorTitleText</strong>
+                                @Resources.AuthenticationNoSchemesErrorText
+                            </div>
+                        }
+                        else if (!User.Identity.IsAuthenticated)
+                        {
+                            <h4 class="card-title">@Resources.RegisterNewAccountText</h4>
+
+                            <form asp-controller="Account" asp-action="Register" method="post" asp-antiforgery="true">
+                                <input type="hidden" asp-for="ReturnUrl" />
+                                @await Html.PartialAsync("_ValidationSummary", Model)
+                                @if (ViewBag.RequiresName)
+                                {
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-label-group">
+                                                    <label asp-for="FirstName">@Resources.FirstNameText</label>
+                                                    <input type="text" asp-for="FirstName" placeholder="@Resources.FirstNameText" class="form-control" required="required" autofocus="autofocus" autocomplete="given-name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-label-group">
+                                                    <label asp-for="LastName">@Resources.LastNameText</label>
+                                                    <input type="text" asp-for="LastName" placeholder="@Resources.LastNameText" class="form-control" required="required" autocomplete="family-name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group pl-lg-5">
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                }
+
+                                <div class="form-group">
+                                    <label asp-for="Email">@Resources.EmailText</label>
+                                    <input asp-for="Email" placeholder="@Resources.EmailText" class="form-control" autocomplete="email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                @if (Model.LoginMethod != Bastille.Id.Server.Core.Configuration.LoginIdentifierMethod.Email)
+                                {
+                                    <div class="form-group">
+                                        <label asp-for="UserName">@Resources.UserNameText</label>
+                                        <input asp-for="UserName" placeholder="@Resources.UserNameText" class="form-control" autocomplete="username">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                }
+
+                                <div class="form-group">
+                                    <label asp-for="Password">@Resources.PasswordText</label>
+                                    <input type="password" asp-for="Password" placeholder="@Resources.PasswordText" class="form-control" autocomplete="new-password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="ConfirmPassword">@Resources.ConfirmPasswordText</label>
+                                    <input type="password" asp-for="ConfirmPassword" placeholder="@Resources.ConfirmPasswordText" class="form-control" autocomplete="off">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="custom-checkbox custom-control">
+                                        <input type="checkbox" asp-for="TermsAgree" class="custom-control-input" required="required">
+                                        <label asp-for="TermsAgree" class="custom-control-label">@Resources.IAgreeText <a href="@ViewBag.TermsUrl" target="_blank">@Resources.TermsAndConditionsText</a></label>
+                                        <span asp-validation-for="TermsAgree" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @await Html.PartialAsync("_hCAPTCHA")
+                                </div>
+
+                                <div class="form-group m-0">
+                                    <button type="submit" name="button" value="login" class="btn btn-primary btn-block">@Resources.RegisterText</button>
+                                </div>
+                            </form>
+
+                            // render the external logins available.
+                            @await Html.PartialAsync("_ExternalRegisterPartial", Model)
+                        }
+                        else
+                        {
+                            // TODO: render already logged in, cannot create a new account without logging out.
+                        }
+                    </div>
+                    <div class="text-center">
+                        <a class="d-block small mt-3" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">@Resources.BackToLoginText</a>
+                        <a class="d-block small" asp-controller="Account" asp-action="ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl">@Resources.ForgotYourPasswordText</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

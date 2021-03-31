@@ -1,0 +1,14 @@
+@using Bastille.Id.Core.Data.Entities
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="/Account/Logout">@Resources.SignOutText</a>
+        </li>
+    </ul>
+}

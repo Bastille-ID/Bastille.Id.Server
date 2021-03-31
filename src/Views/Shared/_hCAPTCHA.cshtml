@@ -1,0 +1,4 @@
+﻿@using Talegen.AspNetCore.hCAPTCHA
+@inject CaptchaOptions captchaOptions
+<div class="h-captcha" data-sitekey="@captchaOptions.SiteKey"></div>
+<script src="@(captchaOptions.JavaScriptUrl)" async defer></script>

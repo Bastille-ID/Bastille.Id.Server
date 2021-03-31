@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Recovery codes";
+    string[] codes = TempData["RecoveryCodes"] as string[] ?? new string[] { };
+}
+
+<h4>@ViewData["Title"]</h4>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <strong>Put these codes in a safe place.</strong>
+    </p>
+    <p>
+        If you lose your device and don't have the recovery codes you will lose access to your account.
+    </p>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @for (var row = 0; row < codes.Length; row += 2)
+        {
+            <code class="recovery-code">@codes[row]</code><text>&nbsp;</text><code class="recovery-code">@codes[row + 1]</code><br />
+        }
+    </div>
+</div>
+© 2021 GitHub, Inc.

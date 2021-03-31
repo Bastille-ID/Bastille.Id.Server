@@ -1,0 +1,115 @@
+html, body {
+    height: 100%;
+}
+
+.divider-line {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    background-color: #dbdbdb;
+    height: 1px;
+    position: relative;
+    top: .45em;
+}
+
+.divider {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    margin: 15px 5px 15px 5px;
+}
+
+.divider-content {
+    color: #8e8e8e;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 0 18px;
+    text-transform: uppercase;
+}
+
+body.landing-page {
+    background-color: #f7f9fb;
+    font-size: 14px;
+}
+
+.landing-page .brand {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    position: relative;
+    z-index: 1;
+}
+
+    .landing-page .brand img {
+        width: 100%;
+    }
+
+.landing-page .card-wrapper {
+    width: 400px;
+}
+
+.landing-page .card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+    .landing-page .card.fat {
+        padding: 10px;
+    }
+
+    .landing-page .card .card-title {
+        margin-bottom: 30px;
+    }
+
+.landing-page .form-control {
+    border-width: 2.3px;
+}
+
+.landing-page .form-group label {
+    width: 100%;
+}
+
+.landing-page .btn.btn-block {
+    padding: 12px 10px;
+}
+
+.landing-page .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+    .landing-page .card-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .landing-page .card.fat {
+        padding: 0;
+    }
+
+        .landing-page .card.fat .card-body {
+            padding: 15px;
+        }
+}

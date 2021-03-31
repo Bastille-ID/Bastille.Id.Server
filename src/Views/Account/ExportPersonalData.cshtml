@@ -1,0 +1,42 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.ExportPersonalRequestModel
+
+@{
+    ViewData["Title"] = Resources.ExportPersonalDataText;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Resources.ExportPersonalDataText</h4>
+                <div class="card-description">@Resources.ExportPersonalDataMessageText</div>
+                <hr />
+                <div class="card-description">@Resources.ExportPersonalDataOptionsText</div>
+                <form asp-action="ExportPersonalData" asp-controller="Account" method="post">
+                    <div class="row">
+                        <div class="col-md-10 pr-1">
+                            <div class="form-group">
+                                <label><input type="checkbox" asp-for="@Model.IncludeGroups" /> @Resources.ExportPersonalDataOrganizationText</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 pr-1">
+                            <div class="form-group">
+                                <label><input type="checkbox" asp-for="@Model.IncludeConsents" /> @Resources.ExportPersonalDataConsentsText</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" row">
+                        <div class="col-md-10 pr-1">
+                            <input type="submit" value="@Resources.ExportText" class="btn btn-info btn-fill cursor-pointer" />
+                            <button onclick="history.go(-1); return false;" class="btn btn-info cursor-pointer">@Resources.BackToSettingsText</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

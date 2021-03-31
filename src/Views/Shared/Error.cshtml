@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@model Talegen.Common.Core.Errors.Models.ErrorViewModel<Talegen.Common.Core.Errors.IErrorMessage>
+@inject IWebHostEnvironment host
+@{
+    ViewData["Title"] = Resources.ErrorText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+    var errorMessage = Model?.Error?.Message;
+    var errorDescription = Model.Development ? Model?.Error?.StackTrace : null;
+}
+
+<div class="row">
+    <div class="col-md-8 col-sm-10 ml-auto mr-auto">
+        <div class="card card-signup">
+
+            <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">@ViewData["Title"]</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert">
+                    <p>@Resources.ErrorDialogText</p>
+
+                    @if (errorMessage != null)
+                    {
+                        <strong><em>@errorMessage</em></strong>
+
+                        if (errorDescription != null)
+                        {
+                            <div>@errorDescription</div>
+                        }
+                    }
+
+                    @if (Model.ShowRequestId)
+                    {
+                        <div class="request-id">Request Id: @Model.RequestId</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

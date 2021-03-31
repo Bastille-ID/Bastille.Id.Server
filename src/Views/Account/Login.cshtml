@@ -1,0 +1,109 @@
+﻿@using Bastille.Id.Server.Core.Common
+@using Bastille.Id.Server.Core.Extensions
+@model Bastille.Id.Server.Core.Security.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_Landing.cshtml";
+    ViewData["Title"] = Resources.SignInToYourAccountText;
+    Dictionary<string, string> routeParams = new Dictionary<string, string>
+{
+        { ControllerDefaults.ReturnUrlParameter, Model.ReturnUrl }
+    };
+}
+
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    @* render the tenant name and logo image specified*@
+                    <div class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.TenantName))
+                        {
+                            <div class="row">
+                                <div class="tenant-title col-md-6 col-sm-6 ml-auto mr-auto text-center">
+                                    <h2 class="title">@Model.TenantName</h2>
+                                </div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(Model.LoginLogoImageUrl))
+                        {
+                            <img src="@Model.LoginLogoImageUrl" class="mb-lg-5" />
+                        }
+                    </div>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+
+                        @*If we're not allowing local login, and no external providers configured, can't login *@
+                        @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+                        {
+                            <div class="alert alert-warning">
+                                <strong>@Resources.AuthenticationInvalidRequestErrorTitleText</strong>
+                                @Resources.AuthenticationNoSchemesErrorText
+                            </div>
+                        }
+
+                        @*If the user is not logged in, show login form *@
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <h4 class="card-title">@Resources.SignInText</h4>
+
+                            <form asp-controller="Account" asp-action="Login" method="post" asp-antiforgery="true">
+                                <input type="hidden" asp-for="ReturnUrl" />
+                                <div class="form-group">
+                                    <label asp-for="UserName">@Model.UserNamePlaceholder</label>
+                                    <input asp-for="UserName" placeholder="@Model.UserNamePlaceholder" class="form-control" autofocus="autofocus" autocomplete="username">
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Password">
+                                        @Resources.PasswordText
+                                        <a class="float-right" asp-controller="Account" asp-action="ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl">@Resources.ForgotYourPasswordText</a>
+                                    </label>
+                                    <input type="password" asp-for="Password" placeholder="@Resources.PasswordText" class="form-control" autocomplete="current-password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                @if (Model.AllowRememberLogin)
+                                {
+                                    <div class="form-group">
+                                        <div class="custom-checkbox custom-control">
+                                            <input type="checkbox" asp-for="RememberLogin" class="custom-control-input">
+                                            <label asp-for="RememberLogin" class="custom-control-label">@Resources.RememberMeText</label>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="form-group m-0">
+                                    <button type="submit" name="button" value="login" class="btn btn-primary btn-block">@Resources.SignInText</button>
+                                </div>
+                            </form>
+
+                            @if (Model.AllowRegistration)
+                            {
+                                <div class="mt-4 text-center">
+                                    @Resources.NoAccountQuestionText
+                                    <a asp-controller="Account" asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl">@Resources.CreateOneText</a>
+                                </div>
+                            }
+
+                            // render the external logins available.
+                            @await Html.PartialAsync("_ExternalLoginsPartial", Model)
+                        }
+                        else
+                        {
+                            // TODO: Display a message allowing the user to logout and choose a different account.
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

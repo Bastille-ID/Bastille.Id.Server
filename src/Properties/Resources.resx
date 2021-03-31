@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessDeniedErrorText" xml:space="preserve">
+    <value>Access denied.</value>
+  </data>
+  <data name="ActivityLogText" xml:space="preserve">
+    <value>Activity Log</value>
+  </data>
+  <data name="AddressText" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AddText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddUserAltText" xml:space="preserve">
+    <value>Add New User</value>
+  </data>
+  <data name="AddUserText" xml:space="preserve">
+    <value>New User</value>
+  </data>
+  <data name="AllDatesAndTimesText" xml:space="preserve">
+    <value>All dates and times are shown in</value>
+  </data>
+  <data name="AllOrganizationsDropDownText" xml:space="preserve">
+    <value>All Organizations</value>
+  </data>
+  <data name="AlreadyAuthenticatedErrorText" xml:space="preserve">
+    <value>Wait a second. You're already signed in.</value>
+  </data>
+  <data name="AlreadyLoggedOutErrorText" xml:space="preserve">
+    <value>Wait a second. You're already logged out.</value>
+  </data>
+  <data name="ApiGrantsText" xml:space="preserve">
+    <value>API Grants</value>
+  </data>
+  <data name="ApisText" xml:space="preserve">
+    <value>APIs</value>
+  </data>
+  <data name="ApplicationInUseErrorText" xml:space="preserve">
+    <value>The application is currently in use and cannot be deleted.</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Bastille.ID</value>
+  </data>
+  <data name="ApplicationNameExistsText" xml:space="preserve">
+    <value>The application name specified already exists. Please choose a different name and try again.</value>
+  </data>
+  <data name="ApplicationPictureAltText" xml:space="preserve">
+    <value>Application Picture</value>
+  </data>
+  <data name="ApplicationsText" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="ArgumentMustBeGreaterThanZeroErrorFormat" xml:space="preserve">
+    <value>"{0}" must be greater than 0.</value>
+  </data>
+  <data name="AuthenticateText" xml:space="preserve">
+    <value>Authenticate</value>
+  </data>
+  <data name="AuthenticationInvalidRequestErrorTitleText" xml:space="preserve">
+    <value>Invalid Authentication Request</value>
+  </data>
+  <data name="AuthenticationNoSchemesErrorText" xml:space="preserve">
+    <value>There are no login schemes configured for this client.</value>
+  </data>
+  <data name="AuthenticatorAppVerifiedLogText" xml:space="preserve">
+    <value>User "{0}" with ID "{1}" has enabled 2FA with an authenticator app.</value>
+  </data>
+  <data name="AuthenticatorAppVerifiedText" xml:space="preserve">
+    <value>Your authenticator app has been verified</value>
+  </data>
+  <data name="AvailableOrganizationsText" xml:space="preserve">
+    <value>Available Organizations</value>
+  </data>
+  <data name="BackText" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackToLoginText" xml:space="preserve">
+    <value>Back to sign in</value>
+  </data>
+  <data name="BackToSettingsText" xml:space="preserve">
+    <value>Back to settings</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChangePhotoText" xml:space="preserve">
+    <value>Click to change your photo</value>
+  </data>
+  <data name="ClaimsText" xml:space="preserve">
+    <value>Claims</value>
+  </data>
+  <data name="ClientApplicationAccessDetailsText" xml:space="preserve">
+    <value>Below is the list of applications you have given access to and the names of the resources they have access to.</value>
+  </data>
+  <data name="ClientApplicationAccessText" xml:space="preserve">
+    <value>Client Application Access</value>
+  </data>
+  <data name="ClientApplicationNoneFoundText" xml:space="preserve">
+    <value>You have not given access to any applications</value>
+  </data>
+  <data name="ClientConsentsText" xml:space="preserve">
+    <value>Client Consents</value>
+  </data>
+  <data name="ClientRevokedMessageText" xml:space="preserve">
+    <value>User revoked access to client {0}.</value>
+  </data>
+  <data name="ClientsText" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CodeRequiredErrorText" xml:space="preserve">
+    <value>A password reset code is required.</value>
+  </data>
+  <data name="ConfigureAuthenticatorAppText" xml:space="preserve">
+    <value>Configure authenticator app</value>
+  </data>
+  <data name="ConfirmationRequirementsText" xml:space="preserve">
+    <value>Enter your new password to confirm.</value>
+  </data>
+  <data name="ConfirmPasswordText" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="ConsentMessageText" xml:space="preserve">
+    <value>User {0} consent.</value>
+  </data>
+  <data name="ContactNameText" xml:space="preserve">
+    <value>Contact Name</value>
+  </data>
+  <data name="CreatedText" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="CreateOneText" xml:space="preserve">
+    <value>Create One</value>
+  </data>
+  <data name="CryptoAuthKeyLengthErrorText" xml:space="preserve">
+    <value>Authentication key must be {0} bits in length.</value>
+  </data>
+  <data name="CryptoKeyLengthErrorText" xml:space="preserve">
+    <value>Cryptography key must be {0} bits in length.</value>
+  </data>
+  <data name="CryptoMustSpecifyCryptoTextToDecryptErrorText" xml:space="preserve">
+    <value>The content specified was not recognized as valid encrypted data.</value>
+  </data>
+  <data name="CryptoMustSpecifyTextToEncryptErrorText" xml:space="preserve">
+    <value>No data specified for encryption.</value>
+  </data>
+  <data name="CurrentOrganizationsText" xml:space="preserve">
+    <value>Current Organizations</value>
+  </data>
+  <data name="CurrentPasswordText" xml:space="preserve">
+    <value>Current Password</value>
+  </data>
+  <data name="DashboardText" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DataMigrationErrorText" xml:space="preserve">
+    <value>An error occurred while attepting to load migration and test data.</value>
+  </data>
+  <data name="DataPersistanceInfoText" xml:space="preserve">
+    <value>Persisting data to "{0}".</value>
+  </data>
+  <data name="DeleteAccountConfirmApplications" xml:space="preserve">
+    <value>Please check the boxes below to confirm that you are removing your association with the following applications.</value>
+  </data>
+  <data name="DeleteAccountConfirmation" xml:space="preserve">
+    <value>I am ready to permanently delete my account and access to all related applications.</value>
+  </data>
+  <data name="DeleteAccountConfirmOrganizations" xml:space="preserve">
+    <value>Please check the boxes below to confirm that you are removing your association with the following organizations.</value>
+  </data>
+  <data name="DeleteAccountFailLogText" xml:space="preserve">
+    <value>Error deleting user with the user Id {0}.</value>
+  </data>
+  <data name="DeleteAccountSuccessLogText" xml:space="preserve">
+    <value>Successfully deleted user with the user Id {0}.</value>
+  </data>
+  <data name="DeleteAccountText" xml:space="preserve">
+    <value>Delete Account &amp; Personal Data</value>
+  </data>
+  <data name="DeleteAccountWarningText" xml:space="preserve">
+    <value>You are about to delete your account and remove all Personally Identifiable Information (PII) from all systems accessed by your account. Please check each of the boxes below to confirm your consent to permanently delete your account.</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteUserConfirmationText" xml:space="preserve">
+    <value>Are you sure you want to delete this user?</value>
+  </data>
+  <data name="DeleteUserText" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="DeniedText" xml:space="preserve">
+    <value>denied</value>
+  </data>
+  <data name="DeserializeFileNotFoundErrorText" xml:space="preserve">
+    <value>The file "{0}" was not found.</value>
+  </data>
+  <data name="DetailsLinkText" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DevBlogText" xml:space="preserve">
+    <value>Dev Blog</value>
+  </data>
+  <data name="DiagnosticsText" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="DisabledLowerText" xml:space="preserve">
+    <value>disabled</value>
+  </data>
+  <data name="EditProfileText" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="EmailAccountText" xml:space="preserve">
+    <value>Email/Account ID</value>
+  </data>
+  <data name="EmailConfirmedMessageText" xml:space="preserve">
+    <value>You will be automatically redirected to the login page after </value>
+  </data>
+  <data name="EmailConfirmedPromptText" xml:space="preserve">
+    <value>Your User email address has been successfully verified.</value>
+  </data>
+  <data name="EmailConfirmedText" xml:space="preserve">
+    <value>Email Confirmed</value>
+  </data>
+  <data name="EmailConfirmErrorText" xml:space="preserve">
+    <value>The user id and/or code specified were invalid.</value>
+  </data>
+  <data name="EmailInvalidText" xml:space="preserve">
+    <value>Email invalid.</value>
+  </data>
+  <data name="EmailText" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EnterCodeText" xml:space="preserve">
+    <value>Enter code</value>
+  </data>
+  <data name="EnterRecoveryCodeText" xml:space="preserve">
+    <value>Enter recovery code</value>
+  </data>
+  <data name="EnterYourEmailAddressText" xml:space="preserve">
+    <value>Enter your email address</value>
+  </data>
+  <data name="ErrorCreateDirectoryText" xml:space="preserve">
+    <value>An error occurred while attempting to create the storage directory "{0}".</value>
+  </data>
+  <data name="ErrorDialogText" xml:space="preserve">
+    <value>An error occurred. The following information might help you resolve the error. If the problem persists, please contact support.</value>
+  </data>
+  <data name="ErrorOccuredTryAgainText" xml:space="preserve">
+    <value>An error occurred while processing that request. Please try again and if the problem persists, contact support.</value>
+  </data>
+  <data name="ErrorText" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExpirationDateMustBeInFutureErrorText" xml:space="preserve">
+    <value>The absolute expiration value must be in the future.</value>
+  </data>
+  <data name="ExpiresText" xml:space="preserve">
+    <value>Expires</value>
+  </data>
+  <data name="ExportPersonalDataConsentsText" xml:space="preserve">
+    <value>Consents - All application client consents.</value>
+  </data>
+  <data name="ExportPersonalDataFailLogText" xml:space="preserve">
+    <value>Attempt to export personal data for user with the user Id {0} failed to lookup the user.</value>
+  </data>
+  <data name="ExportPersonalDataMessageText" xml:space="preserve">
+    <value>Export personally identifiable information including client claims.</value>
+  </data>
+  <data name="ExportPersonalDataOptionsText" xml:space="preserve">
+    <value>Select additional information to export</value>
+  </data>
+  <data name="ExportPersonalDataOrganizationText" xml:space="preserve">
+    <value>Organizations - Information on one or more organizations you are associated with.</value>
+  </data>
+  <data name="ExportPersonalDataSuccessLogText" xml:space="preserve">
+    <value>Successfully exported personal data for user with the user Id {0}.</value>
+  </data>
+  <data name="ExportPersonalDataText" xml:space="preserve">
+    <value>Export Personal Data</value>
+  </data>
+  <data name="ExportText" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExternalAuthenticationAccessDeniedText" xml:space="preserve">
+    <value>External authentication "{0}" was denied access.</value>
+  </data>
+  <data name="ExternalAuthenticationAlreadyBoundErrorText" xml:space="preserve">
+    <value>The provider "{0}" cannot be bound to "{1}" user since it is already bound to another user. Please contact your System Administrator.</value>
+  </data>
+  <data name="ExternalAuthenticationAlreadyBoundMessageText" xml:space="preserve">
+    <value>The provider  "{0}" cannot be bound to "{1}" user since it is already bound to "{2}" user.</value>
+  </data>
+  <data name="ExternalAuthenticationBindFailureErrorText" xml:space="preserve">
+    <value>Failed Binding External Login</value>
+  </data>
+  <data name="ExternalAuthenticationProviderForUserNotFoundErrorText" xml:space="preserve">
+    <value>Unable to retrieve the identity provider for "{0}" and/or identity user for "{1}"</value>
+  </data>
+  <data name="ExternalAuthenticationUserNotFoundText" xml:space="preserve">
+    <value>Couldn't find the user with the Provider User Id {0} from the external provider.</value>
+  </data>
+  <data name="ExternalLoginApplicationErrorText" xml:space="preserve">
+    <value>External authentication error</value>
+  </data>
+  <data name="ExternalLoginDeletedMessageText" xml:space="preserve">
+    <value>External login deleted for user with Id: {0}, UserName: {1}</value>
+  </data>
+  <data name="ExternalLoginDeleteFailedErrorText" xml:space="preserve">
+    <value>External login delete attempt failed for user with Id: {0}, UserName: {1}</value>
+  </data>
+  <data name="ExternalLoginMessageText" xml:space="preserve">
+    <value>You've successfully authenticated with {0}. Please enter an email address for this site below and click the Register button to finish signing in.</value>
+  </data>
+  <data name="ExternalLoginSuccessMessageText" xml:space="preserve">
+    <value>User with the Id {0}, and with the Provider User Id {1} successfully authenticated with external login.</value>
+  </data>
+  <data name="ExternalLoginText" xml:space="preserve">
+    <value>External Login</value>
+  </data>
+  <data name="ExternalLoginTitleText" xml:space="preserve">
+    <value>External Authentication</value>
+  </data>
+  <data name="ExternalProvidersLoadErrorText" xml:space="preserve">
+    <value>An error occurred while attempting to load external providers from configuration.</value>
+  </data>
+  <data name="ExternalProvisionDisabledErrorText" xml:space="preserve">
+    <value>Attempt to create an account from external claims when feature is disabled.</value>
+  </data>
+  <data name="FailText" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="FirstNameRequiredText" xml:space="preserve">
+    <value>First name is required.</value>
+  </data>
+  <data name="FirstNameText" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ForgotPasswordCheckEmailMessageText" xml:space="preserve">
+    <value>Your password reset request has been submitted. If your account exists you will receive an email containing additional steps to complete your password reset request.</value>
+  </data>
+  <data name="ForgotPasswordMessageText" xml:space="preserve">
+    <value>Enter your email address for further reset instructions</value>
+  </data>
+  <data name="ForgotYourPasswordText" xml:space="preserve">
+    <value>Forgot Your Password?</value>
+  </data>
+  <data name="FullNameText" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="GrantedText" xml:space="preserve">
+    <value>granted</value>
+  </data>
+  <data name="GroupCreateFailText" xml:space="preserve">
+    <value>Attempt to create new group "{0}" failed.</value>
+  </data>
+  <data name="GroupCreateSuccessText" xml:space="preserve">
+    <value>Successfully added new group "{0}" with Id {1}.</value>
+  </data>
+  <data name="GroupDeleteFailText" xml:space="preserve">
+    <value>Attempt to delete group "{0}" with Id {1} failed.</value>
+  </data>
+  <data name="GroupDeleteSuccessText" xml:space="preserve">
+    <value>Successfully deleted group {0} {1}.</value>
+  </data>
+  <data name="GroupExistsFailText" xml:space="preserve">
+    <value>Error creating group with name "{0}". Name already exists.</value>
+  </data>
+  <data name="GroupUpdateFailText" xml:space="preserve">
+    <value>Attempt to update group "{0}" with Id {1} failed.</value>
+  </data>
+  <data name="GroupUpdateSuccessText" xml:space="preserve">
+    <value>Successfully updated group {0} {1}.</value>
+  </data>
+  <data name="HostTerminatedErrorText" xml:space="preserve">
+    <value>Host terminated unexpectedly.</value>
+  </data>
+  <data name="IAgreeText" xml:space="preserve">
+    <value>I agree to the</value>
+  </data>
+  <data name="IdentifierPlaceholderEmailOrUserNameOrPhoneText" xml:space="preserve">
+    <value>Email, User name, or Phone</value>
+  </data>
+  <data name="IdentifierPlaceholderEmailOrUserNameText" xml:space="preserve">
+    <value>Email or User name</value>
+  </data>
+  <data name="IdentityGrantsText" xml:space="preserve">
+    <value>Identity Grants</value>
+  </data>
+  <data name="IdentityServerText" xml:space="preserve">
+    <value>Identity Server</value>
+  </data>
+  <data name="IdentityUserSyncFailedMessageText" xml:space="preserve">
+    <value>Could not sync with {0} after {1} attempts over the course of {2:0.0} minutes. Sending alert to administrators.</value>
+  </data>
+  <data name="IdentityUserSyncFailedSubjectText" xml:space="preserve">
+    <value>Identity Server Failed to Sync User Action</value>
+  </data>
+  <data name="IdentityUserSyncWebhookErrorText" xml:space="preserve">
+    <value>An error occurred while attempting to send admin e-mail about webhook errors.</value>
+  </data>
+  <data name="IdentityWebhookCantConnectErrorText" xml:space="preserve">
+    <value>Could not connect to {0} on try count {1}. Response was {2}. {3}. Attempt retry in {4} seconds.</value>
+  </data>
+  <data name="IdentityWebhookSuccessText" xml:space="preserve">
+    <value>The {0} webhook to {1} was successfully completed.</value>
+  </data>
+  <data name="IncludeInSubscriptionText" xml:space="preserve">
+    <value>Include In Subscription</value>
+  </data>
+  <data name="IncludeText" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="InvalidArgumentMustBeEnumerationText" xml:space="preserve">
+    <value>Invalid argument. Argument must be an enumeration.</value>
+  </data>
+  <data name="InvalidAttributeOperationErrorText" xml:space="preserve">
+    <value>Invalid Attribute Role Operation</value>
+  </data>
+  <data name="InvalidFileArgumentErrorText" xml:space="preserve">
+    <value>Invalid file argument.</value>
+  </data>
+  <data name="InvalidGrantMissingTokenParameterErrorText" xml:space="preserve">
+    <value>Missing token parameter value.</value>
+  </data>
+  <data name="InvalidPasswordResetCodeErrorText" xml:space="preserve">
+    <value>A code must be supplied for password reset.</value>
+  </data>
+  <data name="InvalidRecoveryCodeText" xml:space="preserve">
+    <value>Invalid recovery code for user {0} entered.</value>
+  </data>
+  <data name="InvalidReturnUrlText" xml:space="preserve">
+    <value>Invalid return URL</value>
+  </data>
+  <data name="InvalidSelectionErrorMessageText" xml:space="preserve">
+    <value>Invalid selection</value>
+  </data>
+  <data name="InvalidWebhookUriErrorText" xml:space="preserve">
+    <value>A valid Post URI was not specified.</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LastLoginText" xml:space="preserve">
+    <value>Last Login</value>
+  </data>
+  <data name="LastNameRequiredText" xml:space="preserve">
+    <value>Last name is required.</value>
+  </data>
+  <data name="LastNameText" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LockDateTimeValidationText" xml:space="preserve">
+    <value>User lock date and time should be 24 hours ahead of the current date and time.</value>
+  </data>
+  <data name="LockedText" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="LockoutEndDateText" xml:space="preserve">
+    <value>Lockout End Date</value>
+  </data>
+  <data name="LockText" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="LockUserText" xml:space="preserve">
+    <value>Lock User</value>
+  </data>
+  <data name="LoggedOutOfClientPromptText" xml:space="preserve">
+    <value>You are now signed out of {0}.</value>
+  </data>
+  <data name="LoggedOutPromptText" xml:space="preserve">
+    <value>You are now signed out.</value>
+  </data>
+  <data name="LoginAccountLockedMessageText" xml:space="preserve">
+    <value>User with ID '{0}' is locked out.</value>
+  </data>
+  <data name="LoginRecoveryInvalidCodeErrorText" xml:space="preserve">
+    <value>Invalid recovery code entered for user with ID '{UserId}'.</value>
+  </data>
+  <data name="LoginRecoverySuccessMessageText" xml:space="preserve">
+    <value>User with ID '{0}' logged in with a recovery code.</value>
+  </data>
+  <data name="LoginRedirectWarningText" xml:space="preserve">
+    <value>Login page: Account already authenticated. Redirecting to return Url "{0}"</value>
+  </data>
+  <data name="LoginReportDescriptionText" xml:space="preserve">
+    <value>Your Last 7 Days of Login Success and Failures</value>
+  </data>
+  <data name="LoginReportLabelText" xml:space="preserve">
+    <value>Login Report</value>
+  </data>
+  <data name="MobileText" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="MustChooseOneErrorMessageText" xml:space="preserve">
+    <value>You must pick at least one permission</value>
+  </data>
+  <data name="MyDashboardText" xml:space="preserve">
+    <value>My Dashboard</value>
+  </data>
+  <data name="NewPasswordText" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="NoAccountQuestionText" xml:space="preserve">
+    <value>Don't have an account?</value>
+  </data>
+  <data name="NoApplicationsMessageText" xml:space="preserve">
+    <value>You have not been subscribed to any applications.</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OfflineAccessDescription" xml:space="preserve">
+    <value>Access to your applications and resources, even when you are offline.</value>
+  </data>
+  <data name="OfflineAccessDisplayName" xml:space="preserve">
+    <value>Offline Access</value>
+  </data>
+  <data name="OfText" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="OldPasswordRequirementText" xml:space="preserve">
+    <value>Enter your current password.</value>
+  </data>
+  <data name="OpenLinkText" xml:space="preserve">
+    <value>Open Link</value>
+  </data>
+  <data name="OrganizationAccessForbiddenText" xml:space="preserve">
+    <value>You do not have permission to access the specified organization details and user information.</value>
+  </data>
+  <data name="OrganizationCreateUserSuccessText" xml:space="preserve">
+    <value>User created a new account with password.</value>
+  </data>
+  <data name="OrganizationDetailsText" xml:space="preserve">
+    <value>Organization Details</value>
+  </data>
+  <data name="OrganizationImageUpdateSuccessText" xml:space="preserve">
+    <value>Organization image updated successfully.</value>
+  </data>
+  <data name="OrganizationsText" xml:space="preserve">
+    <value>Organizations</value>
+  </data>
+  <data name="OrganizationText" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="OrganizationUpdatedSuccessfullyText" xml:space="preserve">
+    <value>Organization Updated Successfully</value>
+  </data>
+  <data name="OrganizationUserDeletedSuccessfulText" xml:space="preserve">
+    <value>Organization user deleted successfully.</value>
+  </data>
+  <data name="OrganizationUserLockedSuccessfulText" xml:space="preserve">
+    <value>Organization user locked successfully.</value>
+  </data>
+  <data name="OrganizationUserPasswordChangedByManagerText" xml:space="preserve">
+    <value>Password for user {0} was changed by a manager successfully.</value>
+  </data>
+  <data name="OrganizationUserRemovedErrorText" xml:space="preserve">
+    <value>You cannot remove yourself from the selected organizaiton.</value>
+  </data>
+  <data name="OrganizationUserRemovedSuccessText" xml:space="preserve">
+    <value>The user has been successfully removed from the organization.</value>
+  </data>
+  <data name="OrganizationUsersText" xml:space="preserve">
+    <value>Organization Users</value>
+  </data>
+  <data name="OrganizationUserUnlockedSuccessfulText" xml:space="preserve">
+    <value>Organization user unlocked successfully.</value>
+  </data>
+  <data name="OrganizationUserUpdateEmailAlreadyExistsText" xml:space="preserve">
+    <value>This email address is already associated with another user account. Please contact Vasont Support for assistance.</value>
+  </data>
+  <data name="OrRegisterWithText" xml:space="preserve">
+    <value>Or Register With</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="OverviewText" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="ParentOrganizationText" xml:space="preserve">
+    <value>Parent Organization</value>
+  </data>
+  <data name="PasswordChangedStatusText" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="PasswordChangeSuccessText" xml:space="preserve">
+    <value>User "{0}" changed their password successfully.</value>
+  </data>
+  <data name="PasswordConfirmationRequirementsText" xml:space="preserve">
+    <value>Enter your new password to confirm.</value>
+  </data>
+  <data name="PasswordlessAuthenticationEnableText" xml:space="preserve">
+    <value>Enable Passwordless Authentication</value>
+  </data>
+  <data name="PasswordOrUserNameIncorrectText" xml:space="preserve">
+    <value>Invalid password or user name.</value>
+  </data>
+  <data name="PasswordRequiredText" xml:space="preserve">
+    <value>Password is Required</value>
+  </data>
+  <data name="PasswordResetConfirmationPromptText" xml:space="preserve">
+    <value>Your password has been reset. Please click the link below to login.</value>
+  </data>
+  <data name="PasswordResetFailInvalidUserMessageText" xml:space="preserve">
+    <value>Password reset attempt made for invalid user with the email "{0}".</value>
+  </data>
+  <data name="PasswordResetFailLogMessageText" xml:space="preserve">
+    <value>Error resetting password for user with Id {0}.</value>
+  </data>
+  <data name="PasswordResetLogMessageText" xml:space="preserve">
+    <value>Forgot password initiated for user with Id {0}.</value>
+  </data>
+  <data name="PasswordResetSuccessLogMessageText" xml:space="preserve">
+    <value>Password successfully got reset for user with Id {0}.</value>
+  </data>
+  <data name="PasswordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PhoneFormatText" xml:space="preserve">
+    <value>(xxx) xxx-xxxx</value>
+  </data>
+  <data name="PhoneText" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="PoweredByText" xml:space="preserve">
+    <value>Powered by</value>
+  </data>
+  <data name="PreferredLanguageText" xml:space="preserve">
+    <value>Preferred Language</value>
+  </data>
+  <data name="ProfileImageUpdateSuccessText" xml:space="preserve">
+    <value>Profile image updated successfully.</value>
+  </data>
+  <data name="ProfileSettingsText" xml:space="preserve">
+    <value>Profile Settings</value>
+  </data>
+  <data name="ProfileText" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="RecoveryCodeFailLogText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RecoveryCodePromptText" xml:space="preserve">
+    <value>You have requested to sign in with a recovery code. This login will not be remembered until you provide an authenticator app code at sign in or disable two-factor authentication and sign in again.</value>
+  </data>
+  <data name="RecoveryCodeSuccessLogText" xml:space="preserve">
+    <value>User with ID {0} logged in with a recovery code.</value>
+  </data>
+  <data name="RecoveryCodeVerificationText" xml:space="preserve">
+    <value>Recovery code verification</value>
+  </data>
+  <data name="RefreshText" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RegisterNewAccountText" xml:space="preserve">
+    <value>Register New Account</value>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterWithText" xml:space="preserve">
+    <value>Register With</value>
+  </data>
+  <data name="RememberDeviceText" xml:space="preserve">
+    <value>Don't ask for codes again on this device</value>
+  </data>
+  <data name="RememberMeText" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="RepositoriesText" xml:space="preserve">
+    <value>Repositories</value>
+  </data>
+  <data name="ResetPasswordEmailSubjectText" xml:space="preserve">
+    <value>Reset Your Password</value>
+  </data>
+  <data name="ResetPasswordText" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="RevokeAccessText" xml:space="preserve">
+    <value>Revoke Access</value>
+  </data>
+  <data name="SearchButtonText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SecondsText" xml:space="preserve">
+    <value>Second(s).</value>
+  </data>
+  <data name="SecurityEventsReportDescriptionText" xml:space="preserve">
+    <value>Your Last 10 Security Events</value>
+  </data>
+  <data name="SecurityEventsReportLabelText" xml:space="preserve">
+    <value>Your Security Events</value>
+  </data>
+  <data name="SetLockDatetTimeText" xml:space="preserve">
+    <value>Set a lock end date and time for this user.</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SigningKeyExceptionErrorText" xml:space="preserve">
+    <value>An error occurred while attempting to load the certificate with thumbprint "{0}" from the "{1}" certificate store.</value>
+  </data>
+  <data name="SigningKeyFromStoreThumbprintText" xml:space="preserve">
+    <value>Adding key from store by {0}</value>
+  </data>
+  <data name="SigningKeyThumbprintNotFoundText" xml:space="preserve">
+    <value>The thumbprint "{0}" could not be found in the "{1}" certificate store.</value>
+  </data>
+  <data name="SignInText" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SignInToYourAccountText" xml:space="preserve">
+    <value>Sign in to your account</value>
+  </data>
+  <data name="SignInWithText" xml:space="preserve">
+    <value>Sign In With</value>
+  </data>
+  <data name="SignOutPromptText" xml:space="preserve">
+    <value>Are you sure you want to sign out? Select "Sign out" below if you are ready to end your current session.</value>
+  </data>
+  <data name="SignOutText" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="SignOutTitleText" xml:space="preserve">
+    <value>Ready to Sign Out?</value>
+  </data>
+  <data name="StandardConcurrentText" xml:space="preserve">
+    <value>Standard Concurrent</value>
+  </data>
+  <data name="StandardNamedText" xml:space="preserve">
+    <value>Standard Named</value>
+  </data>
+  <data name="StartupBackgroundWorkerErrorText" xml:space="preserve">
+    <value>An error occurred while attempting to start the background job services on startup.</value>
+  </data>
+  <data name="StartupMessageText" xml:space="preserve">
+    <value>Starting {0}...</value>
+  </data>
+  <data name="StringLengthRequirementsText" xml:space="preserve">
+    <value>The {0} must be at least {2} and at max {1} characters long.</value>
+  </data>
+  <data name="SubscriptionsApplicationDetailsLabelText" xml:space="preserve">
+    <value>Application Details:</value>
+  </data>
+  <data name="SubscriptionsApplicationNameLabelText" xml:space="preserve">
+    <value>Application Name:</value>
+  </data>
+  <data name="SubscriptionsDetailsTitleText" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="SubscriptionsDomainLabelText" xml:space="preserve">
+    <value>Domain:</value>
+  </data>
+  <data name="SubscriptionsNoneFoundText" xml:space="preserve">
+    <value>No subscriptions were found for this Organization.</value>
+  </data>
+  <data name="SubscriptionsOrganizationLabelText" xml:space="preserve">
+    <value>Organization:</value>
+  </data>
+  <data name="SubscriptionsRenewalDateLabelText" xml:space="preserve">
+    <value>Renewal Date:</value>
+  </data>
+  <data name="SubscriptionsText" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
+  <data name="SubscriptionSubscriptionTypeLabelText" xml:space="preserve">
+    <value>Subscription Type:</value>
+  </data>
+  <data name="SubscriptionUpdatedSuccessfullyText" xml:space="preserve">
+    <value>Subscription Updated Successfully</value>
+  </data>
+  <data name="SuccessText" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="TenantsText" xml:space="preserve">
+    <value>Tenants</value>
+  </data>
+  <data name="TermsAgreeRequiredText" xml:space="preserve">
+    <value>You must agree to the terms.</value>
+  </data>
+  <data name="TermsAndConditionsText" xml:space="preserve">
+    <value>Terms and Conditions</value>
+  </data>
+  <data name="TimezoneText" xml:space="preserve">
+    <value>Time zone</value>
+  </data>
+  <data name="TwoFactorAuthenticationCodeText" xml:space="preserve">
+    <value>Authenticator Code</value>
+  </data>
+  <data name="TwoFactorAuthenticationEnableText" xml:space="preserve">
+    <value>Enable Authenticator Application</value>
+  </data>
+  <data name="TwoFactorAuthenticationPromptText" xml:space="preserve">
+    <value>Your login is protected with an authenticator app. Enter the verification code generated by your authenticator application.</value>
+  </data>
+  <data name="TwoFactorAuthenticationSuccessLogText" xml:space="preserve">
+    <value>User {0} with ID "{1}" logged in with 2fa.</value>
+  </data>
+  <data name="TwoFactorAuthenticationText" xml:space="preserve">
+    <value>Two-Factor Authentication</value>
+  </data>
+  <data name="TwoFactorRecoveryPromptText" xml:space="preserve">
+    <value>Don't have access to your authenticator device? You can log in with a recovery code by clicking Recovery below.</value>
+  </data>
+  <data name="TwoFactorUserNotFoundText" xml:space="preserve">
+    <value>Unable to load two-factor authentication user.</value>
+  </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="UnlockUserConfirmationText" xml:space="preserve">
+    <value>Are you sure you want to unlock this user?</value>
+  </data>
+  <data name="UnlockUserText" xml:space="preserve">
+    <value>Unlock User</value>
+  </data>
+  <data name="UpdatedReportLabelText" xml:space="preserve">
+    <value>Updated {0:yyyy-MM-dd hh:mm:ss tt zzz}</value>
+  </data>
+  <data name="UpdateOrganizationText" xml:space="preserve">
+    <value>Update Organization</value>
+  </data>
+  <data name="UpdateProfileText" xml:space="preserve">
+    <value>Update Profile</value>
+  </data>
+  <data name="UpdateText" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateUserText" xml:space="preserve">
+    <value>Update User</value>
+  </data>
+  <data name="UserAccountLockedMessageText" xml:space="preserve">
+    <value>The user account is locked.</value>
+  </data>
+  <data name="UserDeleteAccount" xml:space="preserve">
+    <value>Delete Account</value>
+  </data>
+  <data name="UserDetailsText" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="UseRecoveryCodeText" xml:space="preserve">
+    <value>Use Recovery Code</value>
+  </data>
+  <data name="UserInformationUpdatedSuccessfullyText" xml:space="preserve">
+    <value>User information updated successfully.</value>
+  </data>
+  <data name="UserNameDeniedConsentErrorText" xml:space="preserve">
+    <value>User with the username "{0}" declined to consent.</value>
+  </data>
+  <data name="UserNameIncorrectText" xml:space="preserve">
+    <value>The user name specified was not found.</value>
+  </data>
+  <data name="UserNameInvalidText" xml:space="preserve">
+    <value>User Name is Invalid</value>
+  </data>
+  <data name="UserNameNotFoundErrorText" xml:space="preserve">
+    <value>Couldn't find the user with user name "{0}"</value>
+  </data>
+  <data name="UserNameText" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="UsersText" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="UserText" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="VerificationCodeInvalidText" xml:space="preserve">
+    <value>Verification code is invalid.</value>
+  </data>
+  <data name="VerificationCodeText" xml:space="preserve">
+    <value>Verification Code</value>
+  </data>
+  <data name="VerifyEmailSubjectText" xml:space="preserve">
+    <value>Verify Your Account To Activate</value>
+  </data>
+  <data name="VerifyText" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="WarningText" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="WebsiteText" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+</root>

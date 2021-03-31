@@ -1,0 +1,36 @@
+﻿@using Bastille.Id.Server.Core.Common
+@using Bastille.Id.Server.Controllers
+@model Bastille.Id.Server.Core.Security.Models.RegisterViewModel
+@{
+    if (string.IsNullOrWhiteSpace(ViewBag.ExternalDividerText))
+    {
+        ViewBag.ExternalDividerText = Resources.OrText;
+    }
+}
+@if (Model.VisibleExternalProviders.Any())
+{
+    <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-content">@ViewBag.ExternalDividerText</span>
+        <span class="divider-line"></span>
+    </div>
+    <div class="card-header text-center">
+        <div class="external-providers">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4 class="panel-title">@Resources.RegisterWithText</h4>
+                </div>
+                <div class="panel-body">
+                    @foreach (var provider in Model.VisibleExternalProviders)
+                    {
+                        <a class="btn btn-default"
+                           asp-action="@nameof(ExternalController.Challenge)" asp-controller="@ControllerDefaults.ExternalControllerName"
+                           asp-route-returnUrl="@Model.ReturnUrl" title="@Resources.SignInWithText @provider.DisplayName">
+                            <img src="~/img/providers/@(provider.DisplayName).png" width="23" height="23" alt="@Resources.SignInWithText @provider.DisplayName" />
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

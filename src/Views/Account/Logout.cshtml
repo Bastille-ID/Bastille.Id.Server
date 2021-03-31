@@ -1,0 +1,35 @@
+﻿@model Bastille.Id.Server.Core.Security.Models.LogoutViewModel
+@{
+    ViewData["NoLogoImage"] = true;
+    ViewData["Title"] = Resources.SignOutText;
+    Layout = "~/Views/Shared/_Landing.cshtml";
+}
+<div class="row">
+    <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+        <div class="card card-signup">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form asp-action="Logout">
+                    <input type="hidden" asp-for="LogoutId" />
+                    @await Html.PartialAsync("_ValidationSummary")
+                    @if (Model.ShowLogoutPrompt)
+                    {
+                        <div class="card-body">
+                            <h4>@Resources.SignOutPromptText</h4>
+                        </div>
+                        <div class="footer text-center">
+                            <button type="submit" name="button" value="logout" class="btn btn-primary btn-success btn-round">@Resources.YesText</button>
+                        </div>
+                    }
+                </form>
+            }
+            else
+            {
+                <div class="card-body">
+                    <h2>@Resources.AlreadyLoggedOutErrorText</h2>
+                </div>
+            }
+        </div>
+    </div>
+</div>
