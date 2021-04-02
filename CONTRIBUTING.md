@@ -28,7 +28,7 @@ There are five steps to building this project:
 1. [Install dependencies](#install-dependencies)
 1. [Run the project](#run-the-project)
 
-Once you get the project built, see if you can fix some [issues](https://github.com/Talegen/Talegen.AspNetCore.hCAPTCHA/issues).
+Once you get the project built, see if you can fix some [issues](https://github.com/Bastille-ID/Bastille.Id.Server/issues).
 
 ### Set up Git and Install Visual Studio
 
@@ -51,7 +51,7 @@ A *clone* is a downloaded version of a repository. Cloning our fork lets you dow
 Use `git` to clone your fork
 
 ```
-$ git clone https://github.com/YOUR-USERNAME/Bastille.Id.Core
+$ git clone https://github.com/YOUR-USERNAME/Bastille.Id.Server
 ```
 
 ### Install dependencies
@@ -115,7 +115,7 @@ $ git push origin master
 
 ### Open a Pull Request
 
-1. Find the [New Pull Request](https://github.com/Bastille-ID/Bastille.Id.Core/compare/) button
+1. Find the [New Pull Request](https://github.com/Bastille-ID/Bastille.Id.Server/compare/) button
 2. Select the option to **compare across forks**
 3. Select **your username** in the `head fork` option
 4. Select **your username** in the `base` option
