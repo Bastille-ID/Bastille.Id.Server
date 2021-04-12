@@ -8,33 +8,41 @@
     var errorDescription = Model.Development ? Model?.Error?.StackTrace : null;
 }
 
-<div class="row">
-    <div class="col-md-8 col-sm-10 ml-auto mr-auto">
-        <div class="card card-signup">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center align-items-center h-100">
+            <div class="card-wrapper">
 
-            <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">@ViewData["Title"]</h4>
-            </div>
-            <div class="card-body">
-                <div class="alert">
-                    <p>@Resources.ErrorDialogText</p>
+                <div class="text-center">
+                    <img src="~/img/error-page.svg" />
+                </div>
 
-                    @if (errorMessage != null)
-                    {
-                        <strong><em>@errorMessage</em></strong>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">@ViewData["Title"]</h4>
+                        <div class="text-center">
+                            <div class="alert">
+                                <p>@Resources.ErrorDialogText</p>
 
-                        if (errorDescription != null)
-                        {
-                            <div>@errorDescription</div>
-                        }
-                    }
+                                @if (errorMessage != null)
+                                {
+                                    <strong><em>@errorMessage</em></strong>
 
-                    @if (Model.ShowRequestId)
-                    {
-                        <div class="request-id">Request Id: @Model.RequestId</div>
-                    }
+                                    if (errorDescription != null)
+                                    {
+                                        <div>@errorDescription</div>
+                                    }
+                                }
+
+                                @if (Model.ShowRequestId)
+                                {
+                                    <div class="request-id">Request Id: @Model.RequestId</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>

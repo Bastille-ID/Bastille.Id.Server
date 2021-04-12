@@ -3132,289 +3132,14 @@
             Gets the key for the ClientConsentsText resource string.
             </summary>
         </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientCreateFailureText">
-            <summary>
-            Gets the key for the ClientCreateFailureText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientCreateSuccessText">
-            <summary>
-            Gets the key for the ClientCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientDeleteFailureText">
-            <summary>
-            Gets the key for the ClientDeleteFailureText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeCreateFailText">
-            <summary>
-            Gets the key for the ClientGrantTypeCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeCreateSuccessText">
-            <summary>
-            Gets the key for the ClientGrantTypeCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeDeleteFailText">
-            <summary>
-            Gets the key for the ClientGrantTypeDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientGrantTypeDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeExistsFailText">
-            <summary>
-            Gets the key for the ClientGrantTypeExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeUpdateFailText">
-            <summary>
-            Gets the key for the ClientGrantTypeUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientGrantTypeUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientGrantTypeUpdateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutCreateFailText">
-            <summary>
-            Gets the key for the ClientLogoutCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutCreateSuccessText">
-            <summary>
-            Gets the key for the ClientLogoutCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutDeleteFailText">
-            <summary>
-            Gets the key for the ClientLogoutDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientLogoutDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutExistsFailText">
-            <summary>
-            Gets the key for the ClientLogoutExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutUpdateFailText">
-            <summary>
-            Gets the key for the ClientLogoutUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientLogoutUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientLogoutUpdateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginCreateFailText">
-            <summary>
-            Gets the key for the ClientOriginCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginCreateSuccessText">
-            <summary>
-            Gets the key for the ClientOriginCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginDeleteFailText">
-            <summary>
-            Gets the key for the ClientOriginDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientOriginDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginExistsFailText">
-            <summary>
-            Gets the key for the ClientOriginExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginUpdateFailText">
-            <summary>
-            Gets the key for the ClientOriginUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientOriginUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientOriginUpdateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyCreateFailText">
-            <summary>
-            Gets the key for the ClientPropertyCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyCreateSuccessText">
-            <summary>
-            Gets the key for the ClientPropertyCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyDeleteFailText">
-            <summary>
-            Gets the key for the ClientPropertyDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientPropertyDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyExistsFailText">
-            <summary>
-            Gets the key for the ClientPropertyExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyUpdateFailText">
-            <summary>
-            Gets the key for the ClientPropertyUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientPropertyUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientPropertyUpdateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectCreateFailText">
-            <summary>
-            Gets the key for the ClientRedirectCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectCreateSuccessText">
-            <summary>
-            Gets the key for the ClientRedirectCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectDeleteFailText">
-            <summary>
-            Gets the key for the ClientRedirectDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientRedirectDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectExistsFailText">
-            <summary>
-            Gets the key for the ClientRedirectExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectUpdateFailText">
-            <summary>
-            Gets the key for the ClientRedirectUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRedirectUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientRedirectUpdateSuccessText resource string.
-            </summary>
-        </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientRevokedMessageText">
             <summary>
             Gets the key for the ClientRevokedMessageText resource string.
             </summary>
         </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeCreateFailText">
-            <summary>
-            Gets the key for the ClientScopeCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeCreateSuccessText">
-            <summary>
-            Gets the key for the ClientScopeCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeDeleteFailText">
-            <summary>
-            Gets the key for the ClientScopeDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientScopeDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeExistsFailText">
-            <summary>
-            Gets the key for the ClientScopeExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeUpdateFailText">
-            <summary>
-            Gets the key for the ClientScopeUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientScopeUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientScopeUpdateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretCreateFailText">
-            <summary>
-            Gets the key for the ClientSecretCreateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretCreateSuccessText">
-            <summary>
-            Gets the key for the ClientSecretCreateSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretDeleteFailText">
-            <summary>
-            Gets the key for the ClientSecretDeleteFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretDeleteSuccessText">
-            <summary>
-            Gets the key for the ClientSecretDeleteSuccessText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretExistsFailText">
-            <summary>
-            Gets the key for the ClientSecretExistsFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretUpdateFailText">
-            <summary>
-            Gets the key for the ClientSecretUpdateFailText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientSecretUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientSecretUpdateSuccessText resource string.
-            </summary>
-        </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientsText">
             <summary>
             Gets the key for the ClientsText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientUpdateFailureText">
-            <summary>
-            Gets the key for the ClientUpdateFailureText resource string.
-            </summary>
-        </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.ClientUpdateSuccessText">
-            <summary>
-            Gets the key for the ClientUpdateSuccessText resource string.
             </summary>
         </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.CloseText">
@@ -4312,11 +4037,6 @@
             Gets the key for the ProfileText resource string.
             </summary>
         </member>
-        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.RecordNotFoundErrorText">
-            <summary>
-            Gets the key for the RecordNotFoundErrorText resource string.
-            </summary>
-        </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.RecoveryCodeFailLogText">
             <summary>
             Gets the key for the RecoveryCodeFailLogText resource string.
@@ -4707,9 +4427,54 @@
             Gets the key for the VerificationCodeText resource string.
             </summary>
         </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyClickResendCodeMessageText">
+            <summary>
+            Gets the key for the VerifyClickResendCodeMessageText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyEmailAndPhoneText">
+            <summary>
+            Gets the key for the VerifyEmailAndPhoneText resource string.
+            </summary>
+        </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyEmailSubjectText">
             <summary>
             Gets the key for the VerifyEmailSubjectText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyEmailSuggestMessageText">
+            <summary>
+            Gets the key for the VerifyEmailSuggestMessageText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyEmailText">
+            <summary>
+            Gets the key for the VerifyEmailText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyEmailWarningText">
+            <summary>
+            Gets the key for the VerifyEmailWarningText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyPhoneSuggestMessageText">
+            <summary>
+            Gets the key for the VerifyPhoneSuggestMessageText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyPhoneText">
+            <summary>
+            Gets the key for the VerifyPhoneText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyPluralHaveText">
+            <summary>
+            Gets the key for the VerifyPluralHaveText resource string.
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifySingularHasText">
+            <summary>
+            Gets the key for the VerifySingularHasText resource string.
             </summary>
         </member>
         <member name="F:Bastille.Id.Server.Properties.ResourceKeys.VerifyText">
