@@ -996,8 +996,35 @@
   <data name="VerificationCodeText" xml:space="preserve">
     <value>Verification Code</value>
   </data>
+  <data name="VerifyClickResendCodeMessageText" xml:space="preserve">
+    <value>Click here to resend verification.</value>
+  </data>
+  <data name="VerifyEmailAndPhoneText" xml:space="preserve">
+    <value>Email Address and Phone Number</value>
+  </data>
   <data name="VerifyEmailSubjectText" xml:space="preserve">
     <value>Verify Your Account To Activate</value>
+  </data>
+  <data name="VerifyEmailSuggestMessageText" xml:space="preserve">
+    <value>Please click the verification link within the email sent to your address {0}.</value>
+  </data>
+  <data name="VerifyEmailText" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="VerifyEmailWarningText" xml:space="preserve">
+    <value>Your account is not able to be used until your {0} {1} been verfied. {2}</value>
+  </data>
+  <data name="VerifyPhoneSuggestMessageText" xml:space="preserve">
+    <value>Please verify the code sent to your phone number {0}.</value>
+  </data>
+  <data name="VerifyPhoneText" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="VerifyPluralHaveText" xml:space="preserve">
+    <value>have</value>
+  </data>
+  <data name="VerifySingularHasText" xml:space="preserve">
+    <value>has</value>
   </data>
   <data name="VerifyText" xml:space="preserve">
     <value>Verify</value>

@@ -80,6 +80,11 @@ namespace Bastille.Id.Server.Core.Configuration
         public bool RequiresEmailVerification { get; set; } = true;
 
         /// <summary>
+        /// Gets or sets a value indicating whether phone verification is required for new users.
+        /// </summary>
+        public bool RequiresPhoneVerification { get; set; }
+
+        /// <summary>
         /// Gets or sets the remember me login duration.
         /// </summary>
         public int RememberMeLoginDurationDays { get; set; } = 30;

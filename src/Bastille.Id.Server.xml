@@ -95,6 +95,11 @@
             Gets or sets a value indicating whether e-mail verification is required for new users.
             </summary>
         </member>
+        <member name="P:Bastille.Id.Server.Core.Configuration.AccountSettings.RequiresPhoneVerification">
+            <summary>
+            Gets or sets a value indicating whether phone verification is required for new users.
+            </summary>
+        </member>
         <member name="P:Bastille.Id.Server.Core.Configuration.AccountSettings.RememberMeLoginDurationDays">
             <summary>
             Gets or sets the remember me login duration.
@@ -2577,6 +2582,14 @@
             This controller method is used to display the confirm e-mail page.
             </summary>
             <param name="model">Contains the confirmation return view model.</param>
+            <param name="cancellationToken">Contains the cancellation token.</param>
+            <returns>Returns the action result for the page view.</returns>
+        </member>
+        <member name="M:Bastille.Id.Server.Controllers.AccountController.ConfirmEmailRetry(Bastille.Id.Server.Core.Security.Models.ConfirmationReturnViewModel,System.Threading.CancellationToken)">
+            <summary>
+            This controller method is used to resend a confirmation email.
+            </summary>
+            <param name="model">Contains the view model.</param>
             <param name="cancellationToken">Contains the cancellation token.</param>
             <returns>Returns the action result for the page view.</returns>
         </member>
@@ -6200,9 +6213,54 @@
               Looks up a localized string similar to Verification Code.
             </summary>
         </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyClickResendCodeMessageText">
+            <summary>
+              Looks up a localized string similar to Click here to resend verification..
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyEmailAndPhoneText">
+            <summary>
+              Looks up a localized string similar to Email Address and Phone Number.
+            </summary>
+        </member>
         <member name="P:Bastille.Id.Server.Properties.Resources.VerifyEmailSubjectText">
             <summary>
               Looks up a localized string similar to Verify Your Account To Activate.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyEmailSuggestMessageText">
+            <summary>
+              Looks up a localized string similar to Please click the verification link within the email sent to your address {0}..
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyEmailText">
+            <summary>
+              Looks up a localized string similar to Email Address.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyEmailWarningText">
+            <summary>
+              Looks up a localized string similar to Your account is not able to be used until your {0} {1} been verfied. {2}.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyPhoneSuggestMessageText">
+            <summary>
+              Looks up a localized string similar to Please verify the code sent to your phone number {0}..
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyPhoneText">
+            <summary>
+              Looks up a localized string similar to Phone Number.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifyPluralHaveText">
+            <summary>
+              Looks up a localized string similar to have.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.VerifySingularHasText">
+            <summary>
+              Looks up a localized string similar to has.
             </summary>
         </member>
         <member name="P:Bastille.Id.Server.Properties.Resources.VerifyText">
