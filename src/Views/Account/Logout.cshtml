@@ -1,36 +1,60 @@
-﻿@model Bastille.Id.Server.Core.Security.Models.LogoutViewModel
+﻿@using Bastille.Id.Server.Core.Common
+@model Bastille.Id.Server.Core.Security.Models.LogoutViewModel
 @{
-    ViewData["NoLogoImage"] = true;
     ViewData["Title"] = Resources.SignOutText;
     Layout = "~/Views/Shared/_Landing.cshtml";
 }
-<div class="row">
-    <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-        <div class="card card-signup">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    @* render the tenant name and logo image specified*@
+                    <div class="text-center">
+                        @if (!string.IsNullOrWhiteSpace(Model.TenantName))
+                        {
+                            <div class="row">
+                                <div class="tenant-title col-md-6 col-sm-6 ml-auto mr-auto text-center">
+                                    <h2 class="title">@Model.TenantName</h2>
+                                </div>
+                            </div>
+                        }
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                <form asp-action="Logout">
-                    <input type="hidden" asp-for="LogoutId" />
-                    <input type="hidden" asp-for="ReturnUrl" />
-                    @await Html.PartialAsync("_ValidationSummary")
-                    @if (Model.ShowLogoutPrompt)
-                    {
-                        <div class="card-body">
-                            <h4>@Resources.SignOutPromptText</h4>
-                        </div>
-                        <div class="footer text-center">
-                            <button type="submit" name="button" value="logout" class="btn btn-primary btn-success btn-round">@Resources.YesText</button>
-                        </div>
-                    }
-                </form>
-            }
-            else
-            {
-                <div class="card-body">
-                    <h2>@Resources.AlreadyLoggedOutErrorText</h2>
+                        @if (!string.IsNullOrWhiteSpace(Model.LoginLogoImageUrl))
+                        {
+                            <img src="@Model.LoginLogoImageUrl" class="mb-lg-5" />
+                        }
+                    </div>
                 </div>
-            }
+                <div class="card fat">
+                    <div class="card-body">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form asp-action="Logout">
+                                <input type="hidden" asp-for="LogoutId" />
+                                <input type="hidden" asp-for="ReturnUrl" />
+                                @await Html.PartialAsync("_ValidationSummary")
+                                @if (Model.ShowLogoutPrompt)
+                                {
+                                    <div class="card-body">
+                                        <h4>@Resources.SignOutPromptText</h4>
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button type="submit" name="button" value="logout" class="btn btn-primary btn-success btn-round">@Resources.SignOutText</button>&nbsp;
+                                        <button type="button" name="cancel" value="cancel" class="btn btn-light btn-round" onclick="history.go(-1);">@Resources.CancelText</button>
+                                    </div>
+                                }
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="card-body">
+                                <h2>@Resources.AlreadyLoggedOutErrorText</h2>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
