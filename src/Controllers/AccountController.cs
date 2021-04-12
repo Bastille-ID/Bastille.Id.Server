@@ -388,14 +388,38 @@ namespace Bastille.Id.Server.Controllers
                             {
                                 string message = Resources.PasswordOrUserNameIncorrectText;
 
-                                if (result.IsLockedOut)
+                                // login result was not successful, so determine why...
+                                if (result.IsNotAllowed && !result.IsLockedOut)
+                                {
+                                    string hasHave = Resources.VerifySingularHasText;
+                                    string verifyItems = Resources.VerifyEmailText;
+                                    string verifySuggestMessage = string.Format(Resources.VerifyEmailSuggestMessageText, userFound.Email);
+
+                                    // the user account has not been locked, but still is not allowed to login, therefore something must be verified.
+                                    if (this.Context.Settings.Account.RequiresEmailVerification & this.Context.Settings.Account.RequiresPhoneVerification && (!userFound.EmailConfirmed || !userFound.PhoneNumberConfirmed))
+                                    {
+                                        verifyItems = Resources.VerifyEmailAndPhoneText;
+                                        hasHave = Resources.VerifyPluralHaveText;
+                                        verifySuggestMessage += string.Format(Resources.VerifyPhoneSuggestMessageText, userFound.PhoneNumber);
+                                    }
+                                    else if (!this.Context.Settings.Account.RequiresEmailVerification && this.Context.Settings.Account.RequiresPhoneVerification && !userFound.PhoneNumberConfirmed)
+                                    {
+                                        verifyItems = Resources.VerifyPhoneText;
+                                        verifySuggestMessage = string.Format(Resources.VerifyPhoneSuggestMessageText, userFound.PhoneNumber);
+                                    }
+
+                                    message = string.Format(Resources.VerifyEmailWarningText, verifyItems, hasHave, verifySuggestMessage);
+                                }
+                                else if (result.IsLockedOut)
                                 {
                                     message = Resources.UserAccountLockedMessageText;
                                 }
 
                                 await this.AuditLog.LogAsync(AuditEvent.Login, AuditResult.Fail, this.ClientAddress, message, userFound.Id).ConfigureAwait(false);
                                 await this.Events.RaiseAsync(new UserLoginFailureEvent(model.UserName, message)).ConfigureAwait(false);
+
                                 this.ModelState.AddModelError(string.Empty, message);
+                                this.AddModelErrorsToStatus(StatusMessageResultType.Warning);
                             }
                         }
                     }
@@ -823,6 +847,8 @@ namespace Bastille.Id.Server.Controllers
 
                                 // submit the register URL to the user via message sender
                                 await this.SendAccountEmailAsync(callbackUrl, user, Resources.VerifyEmailSubjectText, SecurityDefaults.VerifyAccountTemplateName, cancellationToken: cancellationToken);
+
+                                // TODO: set redirection to a check email to confirm message page.
                             }
                             else
                             {
@@ -924,6 +950,61 @@ namespace Bastille.Id.Server.Controllers
                 }
 
                 return actionResult;
+            }
+            else
+            {
+                actionResult = this.NotFound();
+            }
+
+            return actionResult;
+        }
+
+        /// <summary>
+        /// This controller method is used to resend a confirmation email.
+        /// </summary>
+        /// <param name="model">Contains the view model.</param>
+        /// <param name="cancellationToken">Contains the cancellation token.</param>
+        /// <returns>Returns the action result for the page view.</returns>
+        [HttpPost]
+        public async Task<IActionResult> ConfirmEmailRetry(ConfirmationReturnViewModel model, CancellationToken cancellationToken)
+        {
+            IActionResult actionResult = this.Redirect(ControllerDefaults.BaseRedirectUrl);
+
+            // we must allow account registration and we must enable email verification...
+            if (this.ApplicationSettings.Account.AllowRegistration && this.Context.Settings.Account.RequiresEmailVerification)
+            {
+                // if the user was specified...
+                if (!string.IsNullOrWhiteSpace(model.UserId))
+                {
+                    User user = await this.UserManager.FindByIdAsync(model.UserId);
+
+                    // if the user was found...
+                    if (user != null)
+                    {
+                        // generate a new verification code...
+                        var code = await this.UserManager.GenerateEmailConfirmationTokenAsync(user);
+
+                        // generate a callback URL
+                        string callbackUrl = this.Url.Action(action: nameof(AccountController.ConfirmEmail), controller: ControllerDefaults.AccountControllerName, values: new { userId = user.Id, code, returnUrl = model.ReturnUrl }, protocol: this.Request.Scheme);
+
+                        // submit the register URL to the user via message sender
+                        await this.SendAccountEmailAsync(callbackUrl, user, Resources.VerifyEmailSubjectText, SecurityDefaults.VerifyAccountTemplateName, cancellationToken: cancellationToken);
+
+                        // TODO: set redirection to confirm email message page
+                        this.StatusMessage = string.Format(Resources.VerifyEmailSuggestMessageText, user.Email);
+                        this.StatusMessageType = StatusMessageResultType.Info;
+                        actionResult = this.LocalRedirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        actionResult = this.NotFound(string.Format(CultureInfo.CurrentCulture, Id.Core.Properties.Resources.ErrorUserIdentityNotFoundText, model.UserId));
+                    }
+                }
+                else
+                {
+                    this.AddModelErrorsToStatus(StatusMessageResultType.Warning);
+                    this.Context.ErrorManager.Warning(Resources.EmailConfirmErrorText, ErrorCategory.Security);
+                }
             }
             else
             {

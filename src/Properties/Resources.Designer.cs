@@ -2698,11 +2698,92 @@ namespace Bastille.Id.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click here to resend verification..
+        /// </summary>
+        public static string VerifyClickResendCodeMessageText {
+            get {
+                return ResourceManager.GetString("VerifyClickResendCodeMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address and Phone Number.
+        /// </summary>
+        public static string VerifyEmailAndPhoneText {
+            get {
+                return ResourceManager.GetString("VerifyEmailAndPhoneText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Verify Your Account To Activate.
         /// </summary>
         public static string VerifyEmailSubjectText {
             get {
                 return ResourceManager.GetString("VerifyEmailSubjectText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please click the verification link within the email sent to your address {0}..
+        /// </summary>
+        public static string VerifyEmailSuggestMessageText {
+            get {
+                return ResourceManager.GetString("VerifyEmailSuggestMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address.
+        /// </summary>
+        public static string VerifyEmailText {
+            get {
+                return ResourceManager.GetString("VerifyEmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account is not able to be used until your {0} {1} been verfied. {2}.
+        /// </summary>
+        public static string VerifyEmailWarningText {
+            get {
+                return ResourceManager.GetString("VerifyEmailWarningText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please verify the code sent to your phone number {0}..
+        /// </summary>
+        public static string VerifyPhoneSuggestMessageText {
+            get {
+                return ResourceManager.GetString("VerifyPhoneSuggestMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string VerifyPhoneText {
+            get {
+                return ResourceManager.GetString("VerifyPhoneText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to have.
+        /// </summary>
+        public static string VerifyPluralHaveText {
+            get {
+                return ResourceManager.GetString("VerifyPluralHaveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to has.
+        /// </summary>
+        public static string VerifySingularHasText {
+            get {
+                return ResourceManager.GetString("VerifySingularHasText", resourceCulture);
             }
         }
         

@@ -1,12 +1,20 @@
 ﻿@using Bastille.Id.Models
+@using Talegen.Common.Core.Extensions;
+@{
+    var message = TempData["StatusMessage"].ConvertToString();
+}
 @if (ViewContext.ModelState.IsValid == false)
 {
     <div asp-validation-summary="All" class="alert alert-danger rounded" role="alert"></div>
 }
+else if (!string.IsNullOrWhiteSpace(message))
+{
+    <div class="alert alert-danger rounded" role="alert"></div>
+}
 
 @section Scripts {
     <script type="text/javascript">
-        var statusMessage = "@Html.Raw(Model.StatusMessage)";
+        var statusMessage = "@Html.Raw(message)";
         var statusType = "@Model.StatusType".toLowerCase();
         var icon = "@(Model.StatusType == StatusMessageResultType.Success ? "fa-check-circle-o" : "fa-warning")";
         if (statusMessage && statusMessage.length > 0) {

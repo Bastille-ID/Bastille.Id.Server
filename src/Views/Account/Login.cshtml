@@ -48,10 +48,11 @@
                         @*If the user is not logged in, show login form *@
                         @if (!User.Identity.IsAuthenticated)
                         {
+                            @await Html.PartialAsync("_ValidationSummary")
+
                             <h4 class="card-title">@Resources.SignInText</h4>
 
                             <form asp-controller="Account" asp-action="Login" method="post" asp-antiforgery="true">
-                                <input type="hidden" asp-for="ReturnUrl" />
                                 <div class="form-group">
                                     <label asp-for="UserName">@Model.UserNamePlaceholder</label>
                                     <input asp-for="UserName" placeholder="@Model.UserNamePlaceholder" class="form-control" autofocus="autofocus" autocomplete="username">
@@ -77,6 +78,7 @@
                                     </div>
                                 }
 
+                                <input type="hidden" asp-for="ReturnUrl" />
                                 <div class="form-group m-0">
                                     <button type="submit" name="button" value="login" class="btn btn-primary btn-block">@Resources.SignInText</button>
                                 </div>
