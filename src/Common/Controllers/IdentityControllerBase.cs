@@ -29,6 +29,7 @@ namespace Bastille.Id.Server.Core.Controllers
     using Bastille.Id.Core.Data.Entities;
     using Bastille.Id.Core.Extensions;
     using Bastille.Id.Core.Logging;
+    using Bastille.Id.Core.Security;
     using Bastille.Id.Models;
     using Bastille.Id.Models.Logging;
     using Bastille.Id.Server.Controllers;
@@ -324,7 +325,7 @@ namespace Bastille.Id.Server.Core.Controllers
         {
             get
             {
-                return this.User.GetLocale() ?? "en-US";
+                return this.User.GetLocale() ?? SecurityDefaults.DefaultUserLocale;
             }
         }
 
@@ -562,10 +563,7 @@ namespace Bastille.Id.Server.Core.Controllers
         {
             if (messagingContext == null)
             {
-                messagingContext = new MessagingContext
-                {
-                    From = this.Context.Settings.Messaging.FromAddress
-                };
+                messagingContext = new MessagingContext(this.Context.Settings.Messaging.FromAddress, this.Context.Settings.Messaging.TokenValues);
             }
 
             // create a dictionary of token values used to replace tokens with values in the message body.
@@ -575,9 +573,9 @@ namespace Bastille.Id.Server.Core.Controllers
 
             // add link for reset
             tokensList.Add(TemplateTokens.Link, redirectUrl);
-
+            string locale = emailUser.Locale ?? SecurityDefaults.DefaultUserLocale;
             var templates = await this.DataContext.Templates
-                .Where(t => t.TemplateKey.StartsWith($"{emailTemplateName}_{emailUser.Locale}_"))
+                .Where(t => t.TemplateKey.StartsWith($"{emailTemplateName}_{locale}_"))
                 .Select(t => new Talegen.Common.Messaging.Templates.Template
                 {
                     TemplateId = t.TemplateId,
@@ -589,17 +587,17 @@ namespace Bastille.Id.Server.Core.Controllers
 
             // create the sender message
             SenderMessage senderMessage = MessageExtensions.CreateSenderMessage(
-                new MessageSettingsModel
-                {
-                    From = this.Context.Settings.Messaging.FromAddress,
-                    Subject = subject,
-                    TemplateName = emailTemplateName,
-                    To = new List<string>() { emailUser.Email },
-                    ResourceManager = Id.Core.Properties.Resources.ResourceManager,
-                    CultureInfoOverride = emailUser.CultureInfo,
-                    Tokens = tokensList
-                },
-                templates);
+               new MessageSettingsModel
+               {
+                   From = this.Context.Settings.Messaging.FromAddress,
+                   Subject = subject,
+                   TemplateName = emailTemplateName,
+                   To = new List<string>() { emailUser.Email },
+                   ResourceManager = Id.Core.Properties.Resources.ResourceManager,
+                   CultureInfoOverride = emailUser.CultureInfo,
+                   Tokens = tokensList
+               },
+               templates);
 
             // send the message
             await this.MessageSender.SendMessageAsync(senderMessage, cancellationToken);
