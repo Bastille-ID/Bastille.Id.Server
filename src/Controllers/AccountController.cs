@@ -848,7 +848,8 @@ namespace Bastille.Id.Server.Controllers
                                 // submit the register URL to the user via message sender
                                 await this.SendAccountEmailAsync(callbackUrl, user, Resources.VerifyEmailSubjectText, SecurityDefaults.VerifyAccountTemplateName, cancellationToken: cancellationToken);
 
-                                // TODO: set redirection to a check email to confirm message page.
+                                this.StatusMessage = string.Format(Resources.VerifyEmailSuggestMessageText, user.Email);
+                                this.StatusMessageType = StatusMessageResultType.Info;
                             }
                             else
                             {
@@ -990,7 +991,6 @@ namespace Bastille.Id.Server.Controllers
                         // submit the register URL to the user via message sender
                         await this.SendAccountEmailAsync(callbackUrl, user, Resources.VerifyEmailSubjectText, SecurityDefaults.VerifyAccountTemplateName, cancellationToken: cancellationToken);
 
-                        // TODO: set redirection to confirm email message page
                         this.StatusMessage = string.Format(Resources.VerifyEmailSuggestMessageText, user.Email);
                         this.StatusMessageType = StatusMessageResultType.Info;
                         actionResult = this.LocalRedirect(model.ReturnUrl);
