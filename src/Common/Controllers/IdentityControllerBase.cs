@@ -141,6 +141,7 @@ namespace Bastille.Id.Server.Core.Controllers
         /// <summary>
         /// Gets or sets the status message type.
         /// </summary>
+        [TempData]
         public StatusMessageResultType StatusMessageType
         {
             get

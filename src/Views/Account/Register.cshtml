@@ -43,7 +43,7 @@
                         {
                             <h4 class="card-title">@Resources.RegisterNewAccountText</h4>
 
-                            <form asp-controller="Account" asp-action="Register" method="post" asp-antiforgery="true">
+                            <form asp-controller="Account" asp-action="Register" method="post" asp-antiforgery="true" id="regform">
                                 <input type="hidden" asp-for="ReturnUrl" />
                                 @await Html.PartialAsync("_ValidationSummary", Model)
                                 @if (ViewBag.RequiresName)
@@ -110,7 +110,7 @@
                                 </div>
 
                                 <div class="form-group m-0">
-                                    <button type="submit" name="button" value="login" class="btn btn-primary btn-block">@Resources.RegisterText</button>
+                                    <button type="submit" name="button" id="submitbutton" value="login" class="btn btn-primary btn-block" disabled="disabled">@Resources.RegisterText</button>
                                 </div>
                             </form>
 
@@ -134,4 +134,22 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script language="javascript">
+
+        $(document).ready(function () {
+            var regform = $("#regform");
+            var submitbutton = $("#submitbutton");
+
+            regform.on("blur", "input", () => {
+                if (regform.valid()) {
+                    submitbutton.removeAttr('disabled');
+                }
+                else {
+                    submitbutton.attr('disabled', 'disabled');
+                }
+            });
+
+        })
+    </script>
 }

@@ -2,15 +2,37 @@
 @using Talegen.Common.Core.Extensions;
 @{
     var message = TempData["StatusMessage"].ConvertToString();
+    string alertstyle = "alert-danger";
+    string statusText = TempData["StatusMessageType"].ConvertToString();
+
+    StatusMessageResultType status = !string.IsNullOrWhiteSpace(statusText) ? statusText.ToEnum<StatusMessageResultType>() : StatusMessageResultType.Danger;
+    
+    switch (status)
+    {
+        case StatusMessageResultType.Info:
+            alertstyle = "alert-info";
+            break;
+        case StatusMessageResultType.Success:
+            alertstyle = "alert-success";
+            break;
+        case StatusMessageResultType.Warning:
+            alertstyle = "alert-warning";
+            break;
+        case StatusMessageResultType.Primary:
+            alertstyle = "alert-primary";
+            break;
+    }
 }
+
 @if (ViewContext.ModelState.IsValid == false)
 {
-    <div asp-validation-summary="All" class="alert alert-danger rounded" role="alert"></div>
+    <div asp-validation-summary="All" class="alert @alertstyle rounded" role="alert"></div>
 }
 else if (!string.IsNullOrWhiteSpace(message))
 {
-    <div class="alert alert-danger rounded" role="alert"></div>
+    <div class="alert @alertstyle rounded" role="alert">@Html.Raw(message)</div>
 }
+
 
 @section Scripts {
     <script type="text/javascript">
