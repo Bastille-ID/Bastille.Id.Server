@@ -192,8 +192,34 @@ namespace Bastille.Id.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
-            ManageUserProfileModel model = await this.BuildManageUserProfileModelAsync(cancellationToken);
-            return this.View(model);
+            IActionResult actionResult;
+
+            // if the home redirect Uri has been defined...
+            if (this.Context.Settings.Advanced.HomeRedirectUri != null)
+            {
+                Uri returnUri = this.Context.Settings.Advanced.HomeRedirectUri;
+
+                if (this.Request.Query.ContainsKey(ControllerDefaults.ReturnUrlParameter))
+                {
+                    // if the query string contains a return Url, verify the URL is allowed.
+                    returnUri = new Uri(this.Request.Query[ControllerDefaults.ReturnUrlParameter]);
+
+                    if (!this.Interaction.IsValidReturnUrl(returnUri.ToString()) && !this.Url.IsLocalUrl(returnUri.ToString()))
+                    {
+                        await this.AccessDenied();
+                    }
+                }
+
+                // else, not return url specified, use the configured redirect to that page.
+                actionResult = this.Redirect(returnUri.ToString());
+            }
+            else
+            {
+                ManageUserProfileModel model = await this.BuildManageUserProfileModelAsync(cancellationToken);
+                actionResult = this.View(model);
+            }
+
+            return actionResult;
         }
 
         /// <summary>
