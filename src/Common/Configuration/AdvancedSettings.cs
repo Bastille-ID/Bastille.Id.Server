@@ -16,11 +16,24 @@
 
 namespace Bastille.Id.Server.Core.Configuration
 {
+    using System;
+
     /// <summary>
     /// This class contains advanced program settings.
     /// </summary>
     public class AdvancedSettings
     {
+        /// <summary>
+        /// Gets or sets the home redirect URI that will be used if a user is authenticated and attempting to visit the root address of the server.
+        /// </summary>
+        /// <remarks>
+        /// This allows for separation of concerns in application purpose. The server itself is simply a IndentityServer middleware host. This middleware is for
+        /// authentication and validation of tokens. The additional user interfaces added allow for additional means of authentication. Beyond that, the scope
+        /// of the application fades. There is really no need to host user management, reporting, etc. in this server application. To that point, we can specify
+        /// a URI to an application that can handle those types of interfaces if a ReturlUrl is not specified.
+        /// </remarks>
+        public Uri HomeRedirectUri { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether consent has enabled offline access.
         /// </summary>
