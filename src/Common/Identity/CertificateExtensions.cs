@@ -17,6 +17,8 @@
 namespace Bastille.Id.Server.Core.Identity
 {
     using System;
+    using System.Net;
+    using System.Security.Cryptography;
     using System.Security.Cryptography.X509Certificates;
     using Bastille.Id.Server.Core.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -62,38 +64,85 @@ namespace Bastille.Id.Server.Core.Identity
         {
             if (Certificate == null)
             {
-                using (X509Store store = new X509Store(StoreName.My, settings.StoreLocation))
+                if (!string.IsNullOrEmpty(settings.Thumbprint))
                 {
-                    store.Open(OpenFlags.ReadOnly);
-
-                    // clean-up any odd unicode characters introduced by MMC console.
-                    settings.Thumbprint = settings.Thumbprint.Replace("\u200e", string.Empty)
-                        .Replace("\u200f", string.Empty).ToUpperInvariant();
-
-                    try
+                    using (X509Store store = new X509Store(StoreName.My, settings.StoreLocation))
                     {
-                        var certsFound = store.Certificates.Find(X509FindType.FindByThumbprint, settings.Thumbprint, false);
+                        store.Open(OpenFlags.ReadOnly);
 
-                        if (certsFound.Count > 0)
+                        // clean-up any odd unicode characters introduced by MMC console.
+                        settings.Thumbprint = settings.Thumbprint.Replace("\u200e", string.Empty)
+                            .Replace("\u200f", string.Empty).ToUpperInvariant();
+
+                        try
                         {
-                            Log.Information($"Adding key from store by {settings.Thumbprint}");
+                            var certsFound = store.Certificates.Find(X509FindType.FindByThumbprint, settings.Thumbprint, false);
 
-                            // set static with certificate
-                            Certificate = certsFound[0];
+                            if (certsFound.Count > 0)
+                            {
+                                Log.Information($"Adding key from store by {settings.Thumbprint}");
+
+                                // set static with certificate
+                                Certificate = certsFound[0];
+                            }
+                            else
+                            {
+                                Log.Information($"A matching key {settings.Thumbprint} couldn't be found in the local certificate store.");
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            Log.Information($"A matching key {settings.Thumbprint} couldn't be found in the local certificate store.");
+                            Log.Error(ex, $"An error occurred while attempting to load the certificate with thumbprint {settings.Thumbprint}.");
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        Log.Error(ex, $"An error occurred while attempting to load the certificate with thumbprint {settings.Thumbprint}.");
-                    }
+                }
+                else if (settings.GenerateSelfSigning)
+                {
+                    Certificate = GenerateSelfSignedServerCertificate(password: Properties.Resources.ApplicationName);
                 }
             }
 
             return Certificate;
+        }
+
+        /// <summary>
+        /// Generates the self signed server certificate.
+        /// </summary>
+        /// <param name="certificateName">Contains the certificate name.</param>
+        /// <param name="password">Contains the password.</param>
+        /// <returns>Returns a <see cref="X509Certificate2" /> certificate.</returns>
+        public static X509Certificate2 GenerateSelfSignedServerCertificate(string certificateName = "self-signed-cert", string password = "")
+        {
+            X509Certificate2 result = null;
+            SubjectAlternativeNameBuilder sanBuilder = new SubjectAlternativeNameBuilder();
+            sanBuilder.AddIpAddress(IPAddress.Loopback);
+            sanBuilder.AddIpAddress(IPAddress.IPv6Loopback);
+            sanBuilder.AddDnsName("localhost");
+            sanBuilder.AddDnsName(Environment.MachineName);
+
+            X500DistinguishedName distinguishedName = new X500DistinguishedName($"CN={certificateName}");
+
+            using (RSA rsa = RSA.Create(2048))
+            {
+                var request = new CertificateRequest(distinguishedName, rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+
+                request.CertificateExtensions.Add(
+                    new X509KeyUsageExtension(X509KeyUsageFlags.DataEncipherment | X509KeyUsageFlags.KeyEncipherment | X509KeyUsageFlags.DigitalSignature, false));
+
+                request.CertificateExtensions.Add(
+                   new X509EnhancedKeyUsageExtension(
+                       new OidCollection { new Oid("1.3.6.1.5.5.7.3.1") }, false));
+
+                request.CertificateExtensions.Add(sanBuilder.Build());
+
+                var certificate = request.CreateSelfSigned(new DateTimeOffset(DateTime.UtcNow.AddDays(-1)), new DateTimeOffset(DateTime.UtcNow.AddDays(3650)));
+
+                //certificate.FriendlyName = certificateName;
+
+                result = new X509Certificate2(certificate.Export(X509ContentType.Pfx, password), password, X509KeyStorageFlags.MachineKeySet);
+            }
+
+            return result;
         }
     }
 }

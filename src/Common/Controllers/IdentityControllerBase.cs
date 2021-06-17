@@ -21,6 +21,7 @@ namespace Bastille.Id.Server.Core.Controllers
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Security.Claims;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
@@ -259,7 +260,7 @@ namespace Bastille.Id.Server.Core.Controllers
                 if (this.currentUserId == Guid.Empty && this.User != null)
                 {
                     // get subject
-                    string id = this.User.GetUserId();
+                    string id = this.User.SubjectId();
                     this.currentUserId = !string.IsNullOrEmpty(id) ? new Guid(id) : this.UserManager.GetUserId(this.User).ToGuid();
                 }
 
@@ -302,6 +303,28 @@ namespace Bastille.Id.Server.Core.Controllers
         public Uri CurrentUri => new Uri(UriHelper.BuildAbsolute(this.Request.Scheme, this.Request.Host, this.Request.Path));
 
         /// <summary>
+        /// Gets the access token.
+        /// </summary>
+        /// <value>The access token.</value>
+        public string AccessToken
+        {
+            get
+            {
+                string result = string.Empty;
+                HttpContext context = this.HttpContext;
+
+                if (this.User.Identity.IsAuthenticated)
+                {
+                    result = this.User.HasClaim(c => c.Type == "access_token") ?
+                        this.User.FindFirstValue("access_token") :
+                        AsyncHelper.RunSync(() => context.GetTokenAsync("access_token"));
+                }
+
+                return result ?? GetToken(this.Request);
+            }
+        }
+
+        /// <summary>
         /// Gets a lazy-loaded instance of the security log service.
         /// </summary>
         public AuditLogService AuditLog => this.securityLogService.Value;
@@ -314,7 +337,7 @@ namespace Bastille.Id.Server.Core.Controllers
         {
             get
             {
-                return this.User.GetTimeZone() ?? "Etc/UTC";
+                return this.User.TimeZone() ?? "Etc/UTC";
             }
         }
 
@@ -326,7 +349,7 @@ namespace Bastille.Id.Server.Core.Controllers
         {
             get
             {
-                return this.User.GetLocale() ?? SecurityDefaults.DefaultUserLocale;
+                return this.User.Locale() ?? SecurityDefaults.DefaultUserLocale;
             }
         }
 
@@ -639,5 +662,48 @@ namespace Bastille.Id.Server.Core.Controllers
         }
 
         #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// This method is used to retrieve the authentication token from the request header and/or the url if not in the header.
+        /// </summary>
+        /// <param name="request">Contains the request to search for an access token.</param>
+        /// <returns>Returns the token from the request header.</returns>
+        private static string GetToken(HttpRequest request)
+        {
+            string result;
+
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            string auth = request.Headers["Authorization"];
+
+            if (string.IsNullOrWhiteSpace(auth))
+            {
+                result = request.Form?["token"];
+
+                if (string.IsNullOrWhiteSpace(result))
+                {
+                    result = request.Query?["token"];
+                }
+
+                if (string.IsNullOrWhiteSpace(result))
+                {
+                    // http://docs.identityserver.io/en/latest/topics/add_apis.html
+                    result = request.Form?["access_token"];
+                }
+            }
+            else
+            {
+                result = auth.Split(' ')[1];
+            }
+
+            return result;
+        }
+
+        #endregion Private Methods
     }
 }

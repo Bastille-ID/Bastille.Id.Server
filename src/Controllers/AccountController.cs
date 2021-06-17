@@ -228,11 +228,21 @@ namespace Bastille.Id.Server.Controllers
         /// <param name="model">The model.</param>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Error(ErrorViewModel<IErrorMessage> model)
+        public async Task<IActionResult> Error(ErrorViewModel<IErrorMessage> model)
         {
             if (model.Error == null)
             {
-                if (this.Context.ErrorManager.HasErrors)
+                // this could be an internal error from identity server...
+                if (!string.IsNullOrWhiteSpace(model.RequestId))
+                {
+                    var error = await this.Interaction.GetErrorContextAsync(model.RequestId);
+
+                    if (error != null)
+                    {
+                        model.Error = this.Context.ErrorManager.CreateErrorMessage($"[{error.Error}] {error.ErrorDescription}", ErrorType.Critical, ErrorCategory.System);
+                    }
+                }
+                else if (this.Context.ErrorManager.HasErrors)
                 {
                     model.Error = this.Context.ErrorManager.Messages.FirstOrDefault();
                 }
@@ -665,22 +675,24 @@ namespace Bastille.Id.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout(string logoutId, string returnUrl = "", CancellationToken cancellationToken = default)
         {
-            IActionResult actionResult;
-
             LogoutInputModel model = new LogoutInputModel
             {
                 LogoutId = logoutId,
-                ReturnUrl = returnUrl
+                ReturnUrl = returnUrl,
             };
+
+            LogoutViewModel vm = null;
 
             // if we're showing a logout prompt...
             if (this.ApplicationSettings.Account.ShowLogoutPrompt)
             {
                 // build a model so the logout page knows what to display
-                LogoutViewModel vm = await this.BuildLogoutViewModelAsync(model, cancellationToken).ConfigureAwait(false);
-                actionResult = this.View(vm);
+                vm = await this.BuildLogoutViewModelAsync(model, cancellationToken).ConfigureAwait(false);
             }
-            else
+
+            IActionResult actionResult = this.View(vm);
+
+            if (!this.ApplicationSettings.Account.ShowLogoutPrompt || vm == null || (vm != null && !vm.ShowLogoutPrompt))
             {
                 actionResult = await this.Logout(model, cancellationToken);
             }
@@ -702,6 +714,11 @@ namespace Bastille.Id.Server.Controllers
             LoggedOutViewModel viewModel = await this.BuildLoggedOutViewModelAsync(model, cancellationToken).ConfigureAwait(false);
             IActionResult actionResult = this.View(ControllerDefaults.LoggedOutViewName, viewModel);
 
+            if (!string.IsNullOrWhiteSpace(viewModel.PostLogoutRedirectUri))
+            {
+                actionResult = this.Redirect(viewModel.PostLogoutRedirectUri);
+            }
+
             if (this.User?.Identity.IsAuthenticated == true)
             {
                 Guid userId = this.CurrentUserId;
@@ -722,7 +739,7 @@ namespace Bastille.Id.Server.Controllers
             {
                 // build a return URL so the upstream provider will redirect back to us after the user has logged out. this allows us to then complete our
                 // single sign-out processing.
-                string url = this.Url.Action(nameof(this.Logout), new { logoutId = viewModel.LogoutId });
+                string url = this.Url.Action(nameof(this.Logout), new { logoutId = viewModel.LogoutId, ReturnUrl = model.ReturnUrl });
 
                 // this triggers a redirect to the external provider for sign-out
                 actionResult = this.SignOut(new AuthenticationProperties { RedirectUri = url }, viewModel.ExternalAuthenticationScheme);
@@ -1534,7 +1551,7 @@ namespace Bastille.Id.Server.Controllers
             LogoutViewModel vm = new LogoutViewModel
             {
                 LogoutId = model.LogoutId,
-                ShowLogoutPrompt = this.Context.Settings.Account.ShowLogoutPrompt,
+                ShowLogoutPrompt = this.ApplicationSettings.Account.ShowLogoutPrompt,
                 ReturnUrl = model.ReturnUrl,
                 TenantName = tenantConfig != null ? tenantConfig.Name : string.Empty,
                 LoginLogoImageUrl = tenantConfig != null && !string.IsNullOrEmpty(tenantConfig.LogoUrl) ? tenantConfig.LogoUrl : ControllerDefaults.DefaultLogoImageName

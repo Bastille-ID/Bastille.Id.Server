@@ -35,5 +35,11 @@ namespace Bastille.Id.Server.Core.Configuration
         /// Gets or sets the configuration key in store.
         /// </summary>
         public string Thumbprint { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [generate self signing].
+        /// </summary>
+        /// <value><c>true</c> if [generate self signing]; otherwise, <c>false</c>.</value>
+        public bool GenerateSelfSigning { get; set; }
     }
 }

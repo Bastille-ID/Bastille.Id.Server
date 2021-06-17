@@ -275,9 +275,9 @@ namespace Bastille.Id.Server.Controllers
                 var vm = new ExternalLoginViewModel
                 {
                     LoginProvider = result.Principal.Identity.AuthenticationType,
-                    Email = result.Principal.GetEmail(),
-                    FirstName = result.Principal.GetGivenName(),
-                    LastName = result.Principal.GetFamilyName(),
+                    Email = result.Principal.Email(),
+                    FirstName = result.Principal.GivenName(),
+                    LastName = result.Principal.FamilyName(),
                     ReturnUrl = returnUrl,
                     TenantName = tenantConfig != null ? tenantConfig.Name : string.Empty,
                     LoginLogoImageUrl = tenantConfig != null && !string.IsNullOrWhiteSpace(tenantConfig.LogoUrl) ? tenantConfig.LogoUrl : ControllerDefaults.DefaultLogoImageName
