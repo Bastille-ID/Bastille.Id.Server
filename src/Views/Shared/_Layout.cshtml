@@ -40,7 +40,36 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </header>
-    @RenderBody()
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">
+                                <span data-feather="user"></span>
+                                @Resources.OverviewText
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Grants">
+                                <span data-feather="check"></span>
+                                @Resources.ClientConsentsText
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Account/TwoFactorAuthentication">
+                                <span data-feather="lock"></span>
+                                @Resources.TwoFactorAuthenticationText
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        @RenderBody()
+    </div>
 
     <partial name="_Footer" />
 

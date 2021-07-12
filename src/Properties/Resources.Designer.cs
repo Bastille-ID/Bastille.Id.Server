@@ -1996,6 +1996,15 @@ namespace Bastille.Id.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string PropertiesText {
+            get {
+                return ResourceManager.GetString("PropertiesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string RecoveryCodeFailLogText {

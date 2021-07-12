@@ -2334,6 +2334,16 @@
             </summary>
             <returns>Returns a <see cref="T:Bastille.Id.Core.Data.Entities.TenantConfig" /> object if found.</returns>
         </member>
+        <member name="T:Bastille.Id.Server.Common.Security.CustomGrants">
+            <summary>
+            Contains constant keys for custom grants
+            </summary>
+        </member>
+        <member name="F:Bastille.Id.Server.Common.Security.CustomGrants.DelegationGrant">
+            <summary>
+            Contains the Delegation Grant
+            </summary>
+        </member>
         <member name="T:Bastille.Id.Server.Controllers.AccountController">
             <summary>
             This is the main interface of the identity server containing the landing page for login/logout
@@ -2723,6 +2733,18 @@
             <param name="unformattedKey">Contains the unformatted key to encode.</param>
             <returns>Returns the QR code Uri string.</returns>
         </member>
+        <member name="T:Bastille.Id.Server.Controllers.DiagnosticsController">
+            <summary>
+            This class contains server diagnostic controller methods.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Bastille.Id.Server.Controllers.DiagnosticsController.#ctor(Microsoft.Extensions.Options.IOptions{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Vasont.AspnetCore.RedisClient.IAdvancedDistributedCache,Bastille.Id.Core.ApplicationContext{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Microsoft.AspNetCore.Identity.UserManager{Bastille.Id.Core.Data.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{Bastille.Id.Core.Data.Entities.User},IdentityServer4.Services.IIdentityServerInteractionService,IdentityServer4.Stores.IClientStore,Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,IdentityServer4.Services.IEventService,Talegen.Common.Messaging.Senders.IMessageSender,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILogger{Bastille.Id.Server.Controllers.ExternalController})" -->
+        <member name="M:Bastille.Id.Server.Controllers.DiagnosticsController.Index">
+            <summary>
+            This controller method is used to return user diagnostic information.
+            </summary>
+            <returns>Returns the action result of the page view.</returns>
+        </member>
         <member name="T:Bastille.Id.Server.Controllers.ExternalController">
             <summary>
             This class contains controller API endpoints related to external authentation.
@@ -2838,6 +2860,27 @@
             <param name="providerUserId">The provider user identifier.</param>
             <param name="redirectActionName">Name of the redirect action.</param>
             <returns></returns>
+        </member>
+        <member name="T:Bastille.Id.Server.Models.DiagnosticsViewModel">
+            <summary>
+            This class is the diagnostics page view model.
+            </summary>
+        </member>
+        <member name="M:Bastille.Id.Server.Models.DiagnosticsViewModel.#ctor(Microsoft.AspNetCore.Authentication.AuthenticateResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bastille.Id.Server.Models.DiagnosticsViewModel" /> class.
+            </summary>
+            <param name="result">Contains an <see cref="P:Bastille.Id.Server.Models.DiagnosticsViewModel.AuthenticateResult" /> object.</param>
+        </member>
+        <member name="P:Bastille.Id.Server.Models.DiagnosticsViewModel.AuthenticateResult">
+            <summary>
+            Gets the authentication result.
+            </summary>
+        </member>
+        <member name="P:Bastille.Id.Server.Models.DiagnosticsViewModel.Clients">
+            <summary>
+            Gets an enumerable list of clients.
+            </summary>
         </member>
         <member name="T:Bastille.Id.Server.Models.RedirectModel">
             <summary>
@@ -5504,6 +5547,11 @@
               Looks up a localized string similar to Profile.
             </summary>
         </member>
+        <member name="P:Bastille.Id.Server.Properties.Resources.PropertiesText">
+            <summary>
+              Looks up a localized string similar to Properties.
+            </summary>
+        </member>
         <member name="P:Bastille.Id.Server.Properties.Resources.RecoveryCodeFailLogText">
             <summary>
               Looks up a localized string similar to .
@@ -6148,16 +6196,6 @@
             <param name="httpContext">Contains the context.</param>
             <param name="options">Contains cookie options.</param>
             <param name="disallowsSameSiteNone">Contains a function used to disallow.</param>
-        </member>
-        <member name="T:Vasont.IdentityServer.Core.Security.CustomGrants">
-            <summary>
-            Contains constant keys for custom grants
-            </summary>
-        </member>
-        <member name="F:Vasont.IdentityServer.Core.Security.CustomGrants.DelegationGrant">
-            <summary>
-            Contains the Delegation Grant
-            </summary>
         </member>
     </members>
 </doc>

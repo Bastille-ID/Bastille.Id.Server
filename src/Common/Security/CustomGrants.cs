@@ -14,7 +14,7 @@
  *
 */
 
-namespace Vasont.IdentityServer.Core.Security
+namespace Bastille.Id.Server.Common.Security
 {
     /// <summary>
     /// Contains constant keys for custom grants

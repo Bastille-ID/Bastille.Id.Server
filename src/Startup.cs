@@ -758,8 +758,8 @@ namespace Bastille.Id.Server
         private static void InitializeDatabase(IServiceCollection services, bool development)
         {
             // Occasionally IdentityServer project will modify the configuration and persisted grant tables. They do not manage the migrations and therefore we
-            // must implement our own migrations. Below are the commands to run within the Package Manager Console for Vasont.IdentityServer.Core project to
-            // generate the correct migrations. !!!NOTE: Ensure that AutoMigrations are disabled in appsettings.Development.json before attempting to run these commands!!!
+            // must implement our own migrations. Below are the commands to run within the Package Manager Console for Bastille.Id.Core project to generate the
+            // correct migrations. !!!NOTE: Ensure that AutoMigrations are disabled in appsettings.Development.json before attempting to run these commands!!!
             //
             // Add-Migration -Name "Identity{MonthAndYear}ConfigurationMigrationChanges" -Context ConfigurationDbContext -OutputDir "Core\Data\Migrations\IdentityServer\ConfigurationDb"
             //

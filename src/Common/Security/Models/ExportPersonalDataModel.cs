@@ -20,6 +20,7 @@ namespace Bastille.Id.Server.Core.Security.Models
     using System.Collections.Generic;
     using System.Globalization;
     using System.Xml.Serialization;
+    using Bastille.Id.Models.Clients.Consent;
     using Bastille.Id.Models.Security;
     using Bastille.Id.Server.Core.Common.Models;
 
