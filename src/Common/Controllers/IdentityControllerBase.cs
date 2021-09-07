@@ -110,10 +110,10 @@ namespace Bastille.Id.Server.Core.Controllers
             this.HostEnvironment = hostingEnvironment;
 
             // setup working folder if none specified
-            if (hostingEnvironment != null && string.IsNullOrWhiteSpace(this.ApplicationSettings.Storage.RootPath))
+            if (hostingEnvironment != null && string.IsNullOrWhiteSpace(this.ApplicationSettings.Storage.RootPathUri))
             {
                 // working folder will reside in the main application folder by default.
-                this.ApplicationSettings.Storage.RootPath = Path.Combine(hostingEnvironment.ContentRootPath, this.ApplicationSettings.Advanced.AppDataSubFolderName);
+                this.ApplicationSettings.Storage.RootPathUri = Path.Combine(hostingEnvironment.ContentRootPath, this.ApplicationSettings.Advanced.AppDataSubFolderName);
             }
 
             this.DistributedCache = distributedCache;

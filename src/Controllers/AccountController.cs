@@ -160,7 +160,7 @@ namespace Bastille.Id.Server.Controllers
         {
             get
             {
-                string path = Path.Combine(this.ApplicationSettings.Storage.RootPath, "Pictures");
+                string path = Path.Combine(this.ApplicationSettings.Storage.RootPathUri, "Pictures");
 
                 // if the temp picture cache folder doesn't exist...
                 if (!Directory.Exists(path))

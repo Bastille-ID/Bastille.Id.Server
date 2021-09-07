@@ -40,13 +40,21 @@ namespace Bastille.Id.Server.Controllers
     [Authorize]
     public class DiagnosticsController : IdentityControllerBase
     {
-        // <summary>
-        /// Initializes a new instance of the <see cref="DiagnosticsController" /> class. </summary> <param name="appSettings">The application settings.</param>
-        /// <param name="distributedCache">The distributed cache.</param> <param name="appContext">The application context.</param> <param
-        /// name="userManager">The user manager.</param> <param name="signInManager">The sign in manager.</param> <param name="interaction">The
-        /// interaction.</param> <param name="clientStore">The client store.</param> <param name="schemeProvider">The scheme provider.</param> <param
-        /// name="events">The events.</param> <param name="messageSender">The message sender.</param> <param name="hostingEnvironment">The hosting
-        /// environment.</param> <param name="resourceStore">The resource store.</param> <param name="logger">The logger.</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DiagnosticsController" /> class.
+        /// </summary>
+        /// <param name="appSettings">The application settings.</param>
+        /// <param name="distributedCache">The distributed cache.</param>
+        /// <param name="appContext">The application context.</param>
+        /// <param name="userManager">The user manager.</param>
+        /// <param name="signInManager">The sign in manager.</param>
+        /// <param name="interaction">The interaction.</param>
+        /// <param name="clientStore">The client store.</param>
+        /// <param name="schemeProvider">The scheme provider.</param>
+        /// <param name="events">The events.</param>
+        /// <param name="messageSender">The message sender.</param>
+        /// <param name="hostingEnvironment">The hosting environment.</param>
+        /// <param name="logger">The logger.</param>
         public DiagnosticsController(IOptions<ApplicationSettings> appSettings, IAdvancedDistributedCache distributedCache, ApplicationContext<ApplicationSettings> appContext,
             UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interaction, IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider, IEventService events, IMessageSender messageSender, IWebHostEnvironment hostingEnvironment,

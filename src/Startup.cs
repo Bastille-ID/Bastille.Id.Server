@@ -272,10 +272,10 @@ namespace Bastille.Id.Server
                 .PostConfigure<ApplicationSettings>(options =>
                 {
                     // setup working folder if none specified
-                    if (string.IsNullOrWhiteSpace(options.Storage.RootPath))
+                    if (string.IsNullOrWhiteSpace(options.Storage.RootPathUri))
                     {
                         // working folder will reside in the main application folder by default.
-                        options.Storage.RootPath = Path.Combine(this.Environment.ContentRootPath, options.Advanced.AppDataSubFolderName);
+                        options.Storage.RootPathUri = Path.Combine(this.Environment.ContentRootPath, options.Advanced.AppDataSubFolderName);
                     }
                 });
 
@@ -299,7 +299,6 @@ namespace Bastille.Id.Server
         /// <param name="settings">The settings.</param>
         private static void ConfigureServiceTelemetry(IServiceCollection services, ApplicationSettings settings)
         {
-            services.AddSingleton<ITelemetryInitializer, InstrumentationConfigInitializer>();
             services.AddApplicationInsightsTelemetry(settings.ApplicationInsights.InstrumentationKey);
         }
 
@@ -312,10 +311,10 @@ namespace Bastille.Id.Server
         private static void ConfigureServiceStartupSettings(ApplicationSettings settings, string contentRootPath, string redisConnectionString)
         {
             // setup working folder if none specified
-            if (string.IsNullOrWhiteSpace(settings.Storage.RootPath))
+            if (string.IsNullOrWhiteSpace(settings.Storage.RootPathUri))
             {
                 // working folder will reside in the main application folder by default.
-                settings.Storage.RootPath = Path.Combine(contentRootPath, settings.Advanced.AppDataSubFolderName);
+                settings.Storage.RootPathUri = Path.Combine(contentRootPath, settings.Advanced.AppDataSubFolderName);
             }
 
             // if thread settings config has a value...

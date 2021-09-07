@@ -2738,7 +2738,23 @@
             This class contains server diagnostic controller methods.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Bastille.Id.Server.Controllers.DiagnosticsController.#ctor(Microsoft.Extensions.Options.IOptions{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Vasont.AspnetCore.RedisClient.IAdvancedDistributedCache,Bastille.Id.Core.ApplicationContext{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Microsoft.AspNetCore.Identity.UserManager{Bastille.Id.Core.Data.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{Bastille.Id.Core.Data.Entities.User},IdentityServer4.Services.IIdentityServerInteractionService,IdentityServer4.Stores.IClientStore,Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,IdentityServer4.Services.IEventService,Talegen.Common.Messaging.Senders.IMessageSender,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILogger{Bastille.Id.Server.Controllers.ExternalController})" -->
+        <member name="M:Bastille.Id.Server.Controllers.DiagnosticsController.#ctor(Microsoft.Extensions.Options.IOptions{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Vasont.AspnetCore.RedisClient.IAdvancedDistributedCache,Bastille.Id.Core.ApplicationContext{Bastille.Id.Server.Core.Configuration.ApplicationSettings},Microsoft.AspNetCore.Identity.UserManager{Bastille.Id.Core.Data.Entities.User},Microsoft.AspNetCore.Identity.SignInManager{Bastille.Id.Core.Data.Entities.User},IdentityServer4.Services.IIdentityServerInteractionService,IdentityServer4.Stores.IClientStore,Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,IdentityServer4.Services.IEventService,Talegen.Common.Messaging.Senders.IMessageSender,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILogger{Bastille.Id.Server.Controllers.ExternalController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bastille.Id.Server.Controllers.DiagnosticsController" /> class.
+            </summary>
+            <param name="appSettings">The application settings.</param>
+            <param name="distributedCache">The distributed cache.</param>
+            <param name="appContext">The application context.</param>
+            <param name="userManager">The user manager.</param>
+            <param name="signInManager">The sign in manager.</param>
+            <param name="interaction">The interaction.</param>
+            <param name="clientStore">The client store.</param>
+            <param name="schemeProvider">The scheme provider.</param>
+            <param name="events">The events.</param>
+            <param name="messageSender">The message sender.</param>
+            <param name="hostingEnvironment">The hosting environment.</param>
+            <param name="logger">The logger.</param>
+        </member>
         <member name="M:Bastille.Id.Server.Controllers.DiagnosticsController.Index">
             <summary>
             This controller method is used to return user diagnostic information.
